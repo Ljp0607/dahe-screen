@@ -1,9 +1,7 @@
 <template>
-    123
+  <el-button type="primary">Primary</el-button>
 </template>
 
 <script></script>
 
-<style lang="less" scoped>
-
-</style>
+<style lang="less" scoped></style>

@@ -17,41 +17,10 @@
         </div>
         <article>
           <div class="top">
-            <el-pagination
-              size-change="changePage"
-              class="pagination"
-              background
-              page-siz="2"
-              pager-count="4"
-              layout="prev, pager, next"
-              :total="100"
-            />
+            <articleTop />
           </div>
           <div class="center">
-            <img
-              class="item img1"
-              src="https://fwimage.cnfanews.com/jpg/2022/20220811/1579/aⅰ01/0e543e3031fbdd28171846df248e1a16.jpg"
-            />
-            <img
-              class="item img2"
-              src="https://fwimage.cnfanews.com/jpg/2022/20220811/1579/aⅰ01/0e543e3031fbdd28171846df248e1a16.jpg"
-            />
-            <img
-              class="item img3"
-              src="https://fwimage.cnfanews.com/jpg/2022/20220811/1579/aⅰ01/0e543e3031fbdd28171846df248e1a16.jpg"
-            />
-            <img
-              class="item img4"
-              src="https://fwimage.cnfanews.com/jpg/2022/20220811/1579/aⅰ01/0e543e3031fbdd28171846df248e1a16.jpg"
-            />
-            <img
-              class="item img5"
-              src="https://fwimage.cnfanews.com/jpg/2022/20220811/1579/aⅰ01/0e543e3031fbdd28171846df248e1a16.jpg"
-            />
-            <img
-              class="item img6"
-              src="https://fwimage.cnfanews.com/jpg/2022/20220811/1579/aⅰ01/0e543e3031fbdd28171846df248e1a16.jpg"
-            />
+            <articleCenter />
           </div>
           <div class="bottom"></div>
         </article>
@@ -63,12 +32,16 @@
 <script lang="ts" setup>
 import { ref, reactive, onMounted } from "vue";
 import useDark from "@/components/useDark.vue";
+import articleCenter from "../List/component/articleCenter.vue";
+import articleTop from "../List/component/articleTop.vue";
+
 components: {
+  articleCenter;
+  articleTop;
   useDark;
 }
 const dataScreenRef = ref<HTMLElement | null>(null);
 
-function changePage() {}
 //
 // #region
 
@@ -195,24 +168,22 @@ onMounted(() => {
           background-size: 100% 100%;
           background-repeat: no-repeat;
           position: relative;
-          .pagination {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            button {
-              background-color: rgb(25 25 112 0.5);
-              border: #6495ed solid 1px;
-            }
-            li {
-              background-color: rgb(25 25 112 0.5);
-              border: #6495ed solid 1px;
-            }
+          .btn-prev {
+            background-color: rgb(25 25 112 0.5);
+            border: #6495ed solid 1px;
+          }
+          button {
+            background-color: rgb(25 25 112 0.5);
+            border: #6495ed solid 1px;
+          }
+          li {
+            background-color: rgb(25 25 112 0.5);
+            border: #6495ed solid 1px;
           }
         }
         .center {
-          transform-style: preserve-3d;
           flex: 0.25;
+          transform-style: preserve-3d;
           animation: move 18s linear infinite;
           @keyframes move {
             0% {
@@ -221,49 +192,6 @@ onMounted(() => {
             100% {
               transform: rotateY(360deg);
             }
-          }
-          .item {
-            position: absolute;
-            // top: -150px;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            margin: auto;
-            width: 140px;
-            height: 200px;
-            // background-color: aqua;
-            /* //倒影 */
-            // -webkit-box-reflect: below 10px linear-gradient(transparent, white);
-          }
-          .img1 {
-            background-size: cover;
-            transform: rotateY(60deg) translateZ(180px);
-          }
-          .img2 {
-            background-image: url("https://fwimage.cnfanews.com/jpg/2022/20220811/1579/aⅰ01/0e543e3031fbdd28171846df248e1a16.jpg");
-            background-size: cover;
-            transform: rotateY(120deg) translateZ(180px);
-          }
-          .img3 {
-            background-image: url("https://fwimage.cnfanews.com/jpg/2022/20220811/1579/aⅰ01/0e543e3031fbdd28171846df248e1a16.jpg");
-            background-size: cover;
-            transform: rotateY(180deg) translateZ(180px);
-          }
-          .img4 {
-            background-image: url("https://fwimage.cnfanews.com/jpg/2022/20220811/1579/aⅰ01/0e543e3031fbdd28171846df248e1a16.jpg");
-            background-size: cover;
-            transform: rotateY(240deg) translateZ(180px);
-          }
-          .img5 {
-            background-image: url("https://fwimage.cnfanews.com/jpg/2022/20220811/1579/aⅰ01/0e543e3031fbdd28171846df248e1a16.jpg");
-            background-size: cover;
-            transform: rotateY(300deg) translateZ(180px);
-          }
-          .img6 {
-            background-image: url("https://fwimage.cnfanews.com/jpg/2022/20220811/1579/aⅰ01/0e543e3031fbdd28171846df248e1a16.jpg");
-            background-size: cover;
-            transform: rotateY(360deg);
-            transform: translateZ(180px);
           }
         }
         .bottom {

@@ -12,7 +12,7 @@
           <div class="bottom"></div>
         </aside>
         <div class="middle">
-          <div class="top"></div>
+          <div class="top"><mainTop /></div>
           <div class="bottom"></div>
         </div>
         <article>
@@ -34,11 +34,12 @@ import { ref, reactive, onMounted } from "vue";
 import useDark from "@/components/useDark.vue";
 import articleCenter from "../List/component/articleCenter.vue";
 import articleTop from "../List/component/articleTop.vue";
-
+import mainTop from "../List/component/mainTop.vue";
 components: {
   articleCenter;
   articleTop;
   useDark;
+  mainTop;
 }
 const dataScreenRef = ref<HTMLElement | null>(null);
 
@@ -149,6 +150,7 @@ onMounted(() => {
           background-size: 100% 100%;
           background-repeat: no-repeat;
           flex: 3;
+          
         }
         .bottom {
           flex: 1;

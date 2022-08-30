@@ -22,17 +22,7 @@ const data = reactive({
 function ceshi() {
   console.log(123);
 
-  // request
-  //   .drawRecordList({
-  //     page_index: 0,
-  //     page_count: 50,
-  //   })
-  //   .then((res: any) => {
-  //     console.log(res);
-  //   })
-  //   .catch((err: any) => {
-  //     console.log(err);
-  //   });
+
 }
 
 function changePage(e: Number) {

@@ -10,4 +10,7 @@ const drawRecordList = (data: any) => request.get("app/daheDrawActivityConfig/dr
 const getUserCode = (data: any) => request.get("app/daheDrawActivityConfig/getUserCodeAndinvitationList", data, '')
 //抽奖
 const toDraw = (data: any) => request.get("app/daheDrawActivityConfig/toDraw", data, '')
-export default { findDraw, drawRecordList, getUserCode, toDraw }
+
+const fanwenapi = () => request.get("fanwenapi/vedioCountList.do")
+
+export default { findDraw, drawRecordList, getUserCode, toDraw, fanwenapi }

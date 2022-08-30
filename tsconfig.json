@@ -4,13 +4,9 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@com/*": ["./src/components/*"],          
+
     }
   },
-
-  "references": [
-    {
-      "path": "./tsconfig.config.json"
-    }
-  ]
 }

@@ -63,6 +63,7 @@ const resize = () => {
 
 //初始化
 onMounted(() => {
+  console.log("dataScreenRef.value", dataScreenRef.value);
   //初始化调整页面大小
   if (dataScreenRef.value) {
     dataScreenRef.value.style.transform = `scale(${getScale()}) translate(-50%, -50%)`;
@@ -150,7 +151,6 @@ onMounted(() => {
           background-size: 100% 100%;
           background-repeat: no-repeat;
           flex: 3;
-          
         }
         .bottom {
           flex: 1;
@@ -197,7 +197,7 @@ onMounted(() => {
           }
         }
         .bottom {
-          flex: 0.25;
+          flex: 0.16;
           background-image: url("@/assets/3-bg/1-center2.png");
           background-position: center;
           background-size: 100% 100%;

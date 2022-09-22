@@ -1,5 +1,12 @@
 <template>
-  <div>1234</div>
+  <div>Copyright © 2021-2030 大河新闻 All rights reserved.</div>
 </template>
-<script></script>
-<style scoped lang="less"></style>
+
+<script lang="ts" setup></script>
+
+<style lang="less" scoped>
+div {
+  text-align: center;
+  line-height: 60px;
+}
+</style>

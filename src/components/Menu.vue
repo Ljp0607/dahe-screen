@@ -5,12 +5,13 @@
     :collapse="isCollapse"
     text-color="#ffffff"
     background-color="#191A22"
+    :router="true"
   >
     <div class="title">
       <img src="../assets/home/icon.png" alt="" />
       <span :style="{ display: isCollapse ? 'none' : '' }">豫视频</span>
     </div>
-    <el-menu-item index="2">
+    <el-menu-item index="">
       <el-icon><icon-menu /></el-icon>
       <span>首页</span>
     </el-menu-item>
@@ -19,32 +20,31 @@
         <el-icon><location /></el-icon>
         <span>指挥中心</span>
       </template>
-      <el-menu-item index="1-1-1"> 豫视频直播 </el-menu-item>
-      <el-menu-item index="1-2-1"> 数据中心 </el-menu-item>
+      <el-menu-item index="/home/list"> 豫视频直播 </el-menu-item>
+      <el-menu-item index="/home/Download"> 数据中心 </el-menu-item>
     </el-sub-menu>
-
     <el-sub-menu index="2">
       <template #title>
         <el-icon><Document /></el-icon>
         <span>下载量计算</span>
       </template>
-      <el-menu-item index="2-1-1"> 豫视频下载量 </el-menu-item>
+      <el-menu-item index="/home/Reporter"> 豫视频下载量 </el-menu-item>
     </el-sub-menu>
     <el-sub-menu index="3">
       <template #title>
         <el-icon><Setting /></el-icon>
         <span>热榜</span>
       </template>
-      <el-menu-item index="3-1-1"> 微博热榜 </el-menu-item>
-      <el-menu-item index="3-2-1"> 抖音热榜 </el-menu-item>
+      <el-menu-item index="/home/Information"> 微博热榜 </el-menu-item>
+      <el-menu-item index="/home/Picker"> 抖音热榜 </el-menu-item>
     </el-sub-menu>
     <el-sub-menu index="4">
       <template #title>
         <el-icon><location /></el-icon>
-        <span>记者榜</span>
+        <span>记者</span>
       </template>
-      <el-menu-item index="4-1-1"> 记者传播力指数 </el-menu-item>
-      <el-menu-item index="4-2-1"> 记者传播力排行 </el-menu-item>
+      <el-menu-item index="/home/reporter"> 记者传播力指数 </el-menu-item>
+      <el-menu-item index="/home/Download"> 记者传播力排行 </el-menu-item>
     </el-sub-menu>
   </el-menu>
 </template>
@@ -61,6 +61,7 @@ import { useCounterStore } from "../stores/counter";
 const store = useCounterStore();
 const isCollapse = ref(true);
 
+//监控展开item项
 watch(store, (newValue, oldValue) => {
   isCollapse.value = !isCollapse.value;
 });

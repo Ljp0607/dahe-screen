@@ -1,15 +1,39 @@
 <template>
-  <div class="container">
+  <div class="container" ref="container">
     <div class="List" ref="dataScreenRef">
-      <footer></footer>
       <header>
         <div class="title">大河报豫视频24小时指挥中心</div>
+        <!-- <useDark /> -->
       </header>
       <main>
         <aside>
-          <div class="top"></div>
-          <div class="center"></div>
-          <div class="bottom"></div>
+          <div class="top">
+            <div class="title">豫视频48小时热门新闻</div>
+            <Scrollbar
+              maxHeight="180"
+              height="30"
+              :list="data.report"
+              :change="changeRadios"
+            />
+          </div>
+          <div class="center">
+            <div class="title">实时上升热播</div>
+            <Scrollbar
+              maxHeight="180"
+              height="30"
+              :list="data.report"
+              :change="changeRadios"
+            />
+          </div>
+          <div class="bottom">
+            <div class="title">记者传播力</div>
+            <Scrollbar
+              maxHeight="180"
+              height="30"
+              :list="data.report"
+              :change="changeRadios"
+            />
+          </div>
         </aside>
         <div class="middle">
           <div class="top"><mainTop /></div>
@@ -30,77 +54,114 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref, reactive, onMounted } from "vue";
+import { ref, onMounted, watch, reactive } from "vue";
 import useDark from "@/components/useDark.vue";
 import articleCenter from "../List/component/articleCenter.vue";
 import articleTop from "../List/component/articleTop.vue";
 import mainTop from "../List/component/mainTop.vue";
+import list from "@/api/modules/list";
+import Scrollbar from "@/components/Scrollbar.vue";
+import reporter from "@/api/modules/scrollbar";
 components: {
   articleCenter;
   articleTop;
   useDark;
   mainTop;
+  Scrollbar;
 }
-const dataScreenRef = ref<HTMLElement | null>(null);
-
-//
-// #region
-
-/* 根据浏览器大小推断缩放比例 */
-const getScale = (width = 1920, height = 1080) => {
-  let ww = window.innerWidth / width;
-  let wh = window.innerHeight / height;
-  return ww < wh ? ww : wh;
-};
-
-/* 浏览器监听 resize 事件 */
-const resize = () => {
-  if (dataScreenRef.value) {
-    dataScreenRef.value.style.transform = `scale(${getScale()}) translate(-50%, -50%)`;
-  }
-};
-//#endregion
-
+name: list;
 //初始化
-onMounted(() => {
-  console.log("dataScreenRef.value", dataScreenRef.value);
-  //初始化调整页面大小
-  if (dataScreenRef.value) {
-    dataScreenRef.value.style.transform = `scale(${getScale()}) translate(-50%, -50%)`;
-    dataScreenRef.value.style.width = `1920px`;
-    dataScreenRef.value.style.height = `1080px`;
+//获取记者数据
+const data = reactive({
+  report: [
+    { deptName: String, place: 0, reportName: "1", transmissionIndex: 1 },
+  ],
+  radio: 1,
+});
+const report: any[] = reactive([[{ name: "123" }, { age: "333" }], []]);
+function getList() {
+  reporter({
+    dateType: data.radio,
+    page_count: 300,
+  })
+    .then((res: any) => {
+      // console.log(res);
+      data.report = res.data.accountAuthRecordList;
+      for (let i in data.report) {
+        if (data.report[i].transmissionIndex != 0) {
+          data.report[i].place = Number(i) + 1;
+        } else {
+          data.report.splice(Number(i), data.report.length - Number(i));
+          return;
+        }
+      }
+    })
+    .then(() => {
+      console.log(data.report);
+      data.report.map((item) => {
+        report.map((items) => {
+          if (items[0].deptName == item.deptName) {
+            items.push(item);
+            console.log(item);
+          } else {
+            report.push([item]);
+            console.log([item]);
+          }
+        });
+      });
+      console.log(report);
+    })
+
+    .catch(() => {});
+}
+
+//子组件操作改变日榜周榜月榜
+function changeRadios() {
+  if (data.radio == 3) {
+    data.radio = 1;
+  } else {
+    data.radio++;
   }
-  window.addEventListener("resize", resize);
+}
+// 监听日周月榜参数
+watch(
+  () => data.radio,
+  () => {
+    getList();
+  }
+);
+onMounted(() => {
+  getList();
 });
 </script>
 <style lang="less" scosped>
 .container {
   background-image: url("@/assets/1-bg/5.png");
   background-repeat: no-repeat;
-  width: 100vw;
-  height: 100vh;
-  color: white;
-  background-attachment: fixed;
   background-position: center;
-  background-size: 100% 100%;
   background-size: cover;
+  width: 100%;
+  height: 100%;
+  position: relative;
   .List {
-    position: fixed;
-    top: 50%;
-    left: 50%;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    transition: all 0.3s;
-    transform-origin: left top;
     header {
       background-image: url("@/assets/2-bg/6.png");
       background-position: center;
       background-size: 100% 100%;
       background-repeat: no-repeat;
-      flex: 0.6;
-      text-align: center;
+      flex: 1;
+      position: relative;
       .title {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
         font-size: 32px;
         background-image: -webkit-linear-gradient(bottom, #6495ed, #4682b4);
         -webkit-background-clip: text;
@@ -138,6 +199,14 @@ onMounted(() => {
           background-position: center;
           background-size: 100% 100%;
           background-repeat: no-repeat;
+        }
+        .title {
+          margin-top: 15px;
+          text-align: center;
+          font-size: 23px;
+          background-image: -webkit-linear-gradient(bottom, #fff, #006eff);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
       }
       .middle {
@@ -207,7 +276,7 @@ onMounted(() => {
     }
 
     footer {
-      flex: 0.2;
+      flex: 0.6;
     }
   }
 }

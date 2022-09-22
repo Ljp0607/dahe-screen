@@ -19,7 +19,7 @@ const expend = ref(false);
 
 function changeExpand() {
   store.expand = expend.value;
-  console.log(store.expand);
+  // console.log(store.expand);
 }
 onMounted(() => {});
 </script>

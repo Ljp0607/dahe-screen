@@ -19,6 +19,12 @@ const router = createRouter({
       component: () => import('@/views/home/index.vue'),
       children: [
         {
+          path: 'TencentScree',
+          name: 'TencentScree',
+          component: () => import('@/views/ECharts/TencentScree/index.vue')
+          // component: () => import('@/views/ECharts/List/index.vue')
+        },
+        {
           path: 'list',
           name: 'list',
           component: () => import('@/views/ECharts/List/index.vue')
@@ -46,7 +52,6 @@ const router = createRouter({
       path: '/fullScreen',
       name: 'fullScreen',
       component: () => import('@/views/ECharts/index.vue'),
-
       children: [
         {
           path: 'list',
@@ -69,20 +74,20 @@ const router = createRouter({
           name: 'PickerView',
           component: () => import('@/views/ECharts/Picker/index.vue')
         },
+        // {
+        //   path: '/Scrollbar',
+        //   name: 'ScrollbarView',
+        //   component: () => import('../components/Scrollbar.vue')
+        // },
         {
-          path: '/Scrollbar',
-          name: 'ScrollbarView',
-          component: () => import('../components/Scrollbar.vue')
-        },
+          path: 'TencentScree',
+          name: 'TencentScreeView',
+          component: () => import('@/views/ECharts/TencentScree/index.vue'),
+        }
       ]
     },
 
-
-
-
-
-
-    // //404页面
+    //404页面
     // {
     //   path: '/404',
     //   name: '404',

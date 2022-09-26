@@ -53,7 +53,7 @@ const clcikFull = () => {
     url = router.options.history.location.split("home/")[1].split("?")[0];
   }
   router.push({ name: url + "View" });
-  // console.log(url);
+  console.log(url);
 };
 /* 根据浏览器大小推断缩放比例 */
 function getScale() {

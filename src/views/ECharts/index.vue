@@ -2,13 +2,9 @@
 <template>
   <div class="bg">
     <div class="box" ref="ScreenRef">
-      <!-- <useDark /> -->
-      <div class="fullScreen" @click="clickScreen">
-        <el-icon color="#ffffff" :size="20"><TopLeft /></el-icon
-        ><el-icon color="#ffffff" :size="20"><TopRight /></el-icon
-        ><el-icon color="#fff" :size="20"><BottomLeft /></el-icon
-        ><el-icon color="#fff" :size="20"><BottomRight /></el-icon>
-      </div>
+      <el-button type="primary" class="fullScreen" @click="clickScreen">
+        退出全屏
+      </el-button>
       <router-view> </router-view>
     </div>
   </div>
@@ -23,19 +19,19 @@ components: {
 }
 //解构赋值为router
 const router = useRouter();
-
 const ScreenRef = ref<HTMLElement | null>(null);
 //切换路由，全屏或者管理系统
 function clickScreen() {
+  // console.log(123);
   let url = "";
   if (router.options.history.location.indexOf("?") == -1) {
     url = router.options.history.location.split("fullScreen/")[1];
   } else {
     url = router.options.history.location.split("fullScreen/")[1].split("?")[0];
   }
+  console.log(url);
   router.push({ name: url });
 }
-
 /* 根据浏览器大小推断缩放比例 */
 function getScale() {
   let ww = window.innerWidth / 1920;
@@ -75,17 +71,16 @@ window.addEventListener("resize", resize);
     transition: all 0.3s;
     transform-origin: left top;
     .fullScreen {
-      width: 40px;
-      height: 40px;
+      // width: 40px;
+      // height: 40px;
       position: fixed;
-      top: 5%;
-      left: 5%;
+      top: 30px;
+      left: 40px;
       z-index: 100;
-      .el-icon {
-        vertical-align: top;
-        width: 20px;
-        height: 20px;
-      }
+      opacity: 0;
+    }
+    .fullScreen:hover {
+      opacity: 1;
     }
   }
 }

@@ -4,8 +4,14 @@ export const useCounterStore = defineStore({
   id: 'counter',
   state: () => ({
     expand: false,
+    video: [],
     src: "",
-    item: ""
+    item: "",
+    active: 0,
+    option: {
+      lebal: "律媒团",
+      value: "252896"
+    }
   }),
   actions: {
     changeSrc(e: string) {
@@ -16,6 +22,10 @@ export const useCounterStore = defineStore({
     },
     changeItem(e: any) {
       this.item = e
+    },
+    changeOption(e: any) {
+      this.option.lebal = e.lebal
+      this.option.value = e.value
     }
   }
 })

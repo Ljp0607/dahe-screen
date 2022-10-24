@@ -1,6 +1,6 @@
 <!-- 盒子 -->
 <template>
-  <div class="bg">
+  <div class="bg ">
     <div class="box" ref="ScreenRef">
       <el-button type="primary" class="fullScreen" @click="clickScreen">
         退出全屏
@@ -22,14 +22,12 @@ const router = useRouter();
 const ScreenRef = ref<HTMLElement | null>(null);
 //切换路由，全屏或者管理系统
 function clickScreen() {
-  // console.log(123);
   let url = "";
   if (router.options.history.location.indexOf("?") == -1) {
     url = router.options.history.location.split("fullScreen/")[1];
   } else {
     url = router.options.history.location.split("fullScreen/")[1].split("?")[0];
   }
-  console.log(url);
   router.push({ name: url });
 }
 /* 根据浏览器大小推断缩放比例 */

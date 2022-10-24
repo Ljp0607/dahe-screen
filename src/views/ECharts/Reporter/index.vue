@@ -63,7 +63,6 @@ function getList() {
     page_count: 300,
   })
     .then((res: any) => {
-      // console.log(res);
       data.report = res.data.accountAuthRecordList;
       for (let i in data.report) {
         if (data.report[i].transmissionIndex != 0) {
@@ -75,19 +74,15 @@ function getList() {
       }
     })
     .then(() => {
-      console.log(data.report);
       data.report.map((item) => {
         report.map((items) => {
           if (items[0].deptName == item.deptName) {
             items.push(item);
-            console.log(item);
           } else {
             report.push([item]);
-            console.log([item]);
           }
         });
       });
-      console.log(report);
     })
 
     .catch(() => {});
@@ -135,7 +130,7 @@ onMounted(() => {
       padding-top: 15px;
       font-size: 32px;
       background-image: -webkit-linear-gradient(bottom, #6495ed, #4682b4);
-      -webkit-background-clip: text;
+      // -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   }

@@ -11,6 +11,7 @@
       class="video-js vjs-default-skin"
       :width="liveProps.width"
       :height="liveProps.height"
+      autoplay="true"
       controls
     >
       <source ref="source" :src="liveProps.src[0]" />
@@ -20,7 +21,7 @@
 <script lang="ts" setup>
 import videojs from "video.js";
 import "video.js/dist/video-js.css";
-import { ref, reactive, onMounted, onUpdated, watch } from "vue";
+import { ref, reactive, onMounted, watch } from "vue";
 //接受参数
 export interface Props {
   liveProps?: {
@@ -42,8 +43,8 @@ const props = withDefaults(defineProps<Props>(), {
       width: "940",
       height: "600",
       src: [
-        "http://videofiles.dahebao.cn/5b199581vodcq1306441264/fde566ad387702304900652277/playlist.m3u8",
-        "http://videofiles.dahebao.cn/5b199581vodcq1306441264/35b23e0a387702305310769242/playlist.m3u8",
+        "https://videofiles.dahebao.cn/32038329vodtranscq1306441264/11593097387702307048931875/v.f1137851.mp4",
+        "https://videofiles.dahebao.cn/32038329vodtranscq1306441264/11593097387702307048931875/v.f1137851.mp4",
       ],
     };
   },
@@ -52,7 +53,7 @@ const props = withDefaults(defineProps<Props>(), {
       width: "940",
       height: "600",
       sum: 0,
-      src: "http://videofiles.dahebao.cn/5b199581vodcq1306441264/fde566ad387702304900652277/playlist.m3u8",
+      src: "https://videofiles.dahebao.cn/32038329vodtranscq1306441264/11593097387702307048931875/v.f1137851.mp4",
     };
   },
 });
@@ -96,7 +97,6 @@ watch(props.liveNow, (newValue, oldValue) => {
   changeVideo(props.liveNow.src);
   data.sum = props.liveNow.sum;
 });
-
 onMounted(() => {
   //初始化刷新视频
   videojs(
@@ -106,14 +106,13 @@ onMounted(() => {
       autoplay: true,
       language: "zh-CN",
       muted: true,
+      bigPlayButton: true, //是否显示播放按钮
+      controls: true, //播放控件
     },
-    function onplay() {
-      this.on("ended", function () {
-      });
+    function () {
+      this.on("ended", function () {});
     }
   );
-});
-onUpdated(() => {
 });
 </script>
 

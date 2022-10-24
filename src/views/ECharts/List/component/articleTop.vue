@@ -20,16 +20,13 @@ const data = reactive({
   current: 2,
 });
 function ceshi() {
-  console.log(123);
 
 
 }
 
 function changePage(e: Number) {
-  console.log(e);
 }
 function changeSize() {
-  console.log(333);
 }
 </script>
 

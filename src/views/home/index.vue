@@ -7,7 +7,7 @@
       <el-container>
         <el-header
           ><Header />
-          <Tabs />
+          <!-- <Tabs /> -->
         </el-header>
         <el-main>
           <div class="main" ref="mainRef">
@@ -29,7 +29,7 @@
 import Menu from "@/components/Menu.vue";
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
-import Tabs from "../../components/Tabs.vue";
+// import Tabs from "../../components/Tabs.vue";
 import { ref, onMounted } from "vue";
 import { useRouter } from "vue-router";
 // import Scrollbar from "../../../components/Scrollbar.vue";
@@ -38,7 +38,7 @@ components: {
   Header;
   Footer;
   // Scrollbar;
-  Tabs;
+  // Tabs;
 }
 //解构赋值为router
 const router = useRouter();
@@ -53,7 +53,6 @@ const clcikFull = () => {
     url = router.options.history.location.split("home/")[1].split("?")[0];
   }
   router.push({ name: url + "View" });
-  console.log(url);
 };
 /* 根据浏览器大小推断缩放比例 */
 function getScale() {
@@ -87,7 +86,7 @@ window.addEventListener("resize", resize);
   width: 100%;
   height: 100vh;
   .el-aside {
-    background-color: "#191A22";
+    background-color: #191a22;
     width: auto;
   }
   .el-header {

@@ -28,9 +28,9 @@ import { ref, onMounted, onBeforeUnmount } from "vue";
 //接受参数
 export interface Props {
   list?: {
-    place: number;
-    reportName: string;
-    transmissionIndex: number;
+    place: any;
+    reportName: any;
+    transmissionIndex: any;
   }[]; //数据数组
   line?: string[]; //标题
   height?: number; //表格高度
@@ -46,9 +46,7 @@ const props = withDefaults(defineProps<Props>(), {
   line: () => ["名次", "姓名", "积分"],
   height: 50,
   maxHeight: 800,
-  change: () => {
-    console.log("没有方法");
-  },
+  change: () => {},
 });
 const scrollRef = ref();
 let i = 1;

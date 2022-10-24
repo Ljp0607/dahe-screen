@@ -45,6 +45,12 @@ const router = createRouter({
           name: 'Picker',
           component: () => import('@/views/ECharts/Picker/index.vue')
         }
+        , {
+          path: 'TikTok',
+          name: 'TikTok',
+          component: () => import('@/views/ECharts/TikTok/index.vue')
+        }
+
       ]
     },
     //全屏页面
@@ -83,6 +89,11 @@ const router = createRouter({
           path: 'TencentScree',
           name: 'TencentScreeView',
           component: () => import('@/views/ECharts/TencentScree/index.vue'),
+        },
+        {
+          path: 'TikTok',
+          name: 'TikTokView',
+          component: () => import('@/views/ECharts/TikTok/index.vue'),
         }
       ]
     },

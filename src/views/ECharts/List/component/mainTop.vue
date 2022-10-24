@@ -40,7 +40,7 @@ const options: any[] = reactive([
 ]);
 const liveStreaming = reactive({
   src: [
-    "http://videofiles.dahebao.cn/5b199581vodcq1306441264/fde566ad387702304900652277/playlist.m3u8",
+    "https://videofiles.dahebao.cn/32038329vodtranscq1306441264/11593097387702307048931875/v.f1137851.mp4",
   ],
   width: "935",
   height: "530",
@@ -104,8 +104,10 @@ function getLiveStreaming() {
 //获取热点视频
 function getVideo() {
   request
-    .fanwenapi()
+    .vedioCount()
     .then((res: any) => {
+      console.log(res);
+
       for (let i in res.data) {
         options[2].children.push({
           value: res.data[i].short_video_url,

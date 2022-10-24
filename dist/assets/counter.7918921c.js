@@ -1,0 +1,1 @@
+import{at as t}from"./index.defa7683.js";const i=t({id:"counter",state:()=>({expand:!1,video:[],src:"",item:"",active:0,option:{lebal:"\u5F8B\u5A92\u56E2",value:"252896"}}),actions:{changeSrc(e){this.src=e},changeExpand(){this.expand=!this.expand},changeItem(e){this.item=e},changeOption(e){this.option.lebal=e.lebal,this.option.value=e.value}}});export{i as u};

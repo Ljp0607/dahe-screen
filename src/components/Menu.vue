@@ -20,31 +20,32 @@
         <el-icon><location /></el-icon>
         <span>指挥中心</span>
       </template>
-      <el-menu-item index="list"> 豫视频直播 </el-menu-item>
-      <el-menu-item index="Download"> 数据中心 </el-menu-item>
+      <el-menu-item index="/home/list"> 豫视频直播 </el-menu-item>
+      <el-menu-item index="/home/Download"> 数据中心 </el-menu-item>
+      <el-menu-item index="/home/TikTok"> 抖音直播 </el-menu-item>
     </el-sub-menu>
     <el-sub-menu index="2">
       <template #title>
         <el-icon><Document /></el-icon>
         <span>下载量计算</span>
       </template>
-      <el-menu-item index="Reporter"> 豫视频下载量 </el-menu-item>
+      <!-- <el-menu-item index="/home/Reporter"> 豫视频下载量 </el-menu-item> -->
     </el-sub-menu>
     <el-sub-menu index="3">
       <template #title>
         <el-icon><Setting /></el-icon>
         <span>热榜</span>
       </template>
-      <el-menu-item index="Information"> 微博热榜 </el-menu-item>
-      <el-menu-item index="Picker"> 抖音热榜 </el-menu-item>
+      <el-menu-item index="/home/Information"> 微博热榜 </el-menu-item>
+      <el-menu-item index="/home/Picker"> 抖音热榜 </el-menu-item>
     </el-sub-menu>
     <el-sub-menu index="4">
       <template #title>
         <el-icon><location /></el-icon>
         <span>记者</span>
       </template>
-      <el-menu-item index="reporter"> 记者传播力指数 </el-menu-item>
-      <el-menu-item index="Download"> 记者传播力排行 </el-menu-item>
+      <el-menu-item index="/home/reporter"> 记者传播力指数 </el-menu-item>
+      <!-- <el-menu-item index="/home/Download"> 记者新闻稿 </el-menu-item> -->
     </el-sub-menu>
     <el-sub-menu index="5">
       <template #title>
@@ -109,24 +110,16 @@ const data: any = reactive({
 
 const store = useCounterStore();
 const isCollapse = ref(true);
-const clickSelect = new Promise((e: any) => {
-  // store.item = e;
-  // store.changeItem(e);
-  console.log(e);
-
-  console.log(store);
-});
+const clickSelect = new Promise((e: any) => {});
 clickSelect.then();
-// function clickSelect(e: any) {
-//   store.item = e;
-//   // store.changeItem(e);
-//   console.log(store);
-// }
 
 //监控展开item项
-watch(store, (newValue, oldValue) => {
-  isCollapse.value = !isCollapse.value;
-});
+watch(
+  () => store.$state.expand,
+  (newValue, oldValue) => {
+    isCollapse.value = !isCollapse.value;
+  }
+);
 </script>
 
 <style scoped lang="less">

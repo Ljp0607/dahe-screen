@@ -8,12 +8,27 @@ import routes from './routes';
 const { REACT_APP_ENV = 'dev' } = process.env;
 
 export default defineConfig({
+  // history: {
+  //   type: 'browser'
+  // },
+  hash: true,
+  // manifest: {
+  //   basePath: '/',
+  // },
+  // base: '/screen/',
+  // publicPath: '/screen/',
+
+  /**
+   * @name 部署到非根目录
+   * @description
+   */
+  // base: '.',
   /**
    * @name 开启 hash 模式
    * @description 让 build 之后的产物包含 hash 后缀。通常用于增量发布和避免浏览器加载缓存。
    * @doc https://umijs.org/docs/api/config#hash
    */
-  hash: true,
+  // hash: true,
 
   /**
    * @name 兼容性设置
@@ -33,7 +48,7 @@ export default defineConfig({
   /**
    * @name 主题的配置
    * @description 虽然叫主题，但是其实只是 less 的变量设置
-   * @doc antd的主题设置 https://ant.design/docs/react/customize-theme-cn
+   * @doc antd的主题设置
    * @doc umi 的theme 配置 https://umijs.org/docs/api/config#theme
    */
   theme: {
@@ -76,9 +91,13 @@ export default defineConfig({
    * @name layout 插件
    * @doc https://umijs.org/docs/max/layout-menu
    */
-  title: 'Ant Design Pro',
+  title: '大河报社',
   layout: {
+    // 支持任何不需要 dom 的
+    // https://procomponents.ant.design/components/layout#prolayout
+    name: '大河报社',
     locale: true,
+    layout: 'side',
     ...defaultSettings,
   },
   /**
@@ -132,7 +151,7 @@ export default defineConfig({
   /**
    * @name openAPI 插件的配置
    * @description 基于 openapi 的规范生成serve 和mock，能减少很多样板代码
-   * @doc https://pro.ant.design/zh-cn/docs/openapi/
+   * @doc
    */
   openAPI: [
     {

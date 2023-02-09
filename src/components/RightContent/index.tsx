@@ -1,6 +1,6 @@
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { useEmotionCss } from '@ant-design/use-emotion-css';
-import { SelectLang, useModel } from '@umijs/max';
+import { useModel } from '@umijs/max';
 import React from 'react';
 import Avatar from './AvatarDropdown';
 
@@ -38,19 +38,17 @@ const GlobalHeaderRight: React.FC = () => {
   if (!initialState || !initialState.settings) {
     return null;
   }
-
   return (
     <div className={className}>
       <span
         className={actionClassName}
         onClick={() => {
-          window.open('https://pro.ant.design/docs/getting-started');
+          window.open('https://www.dahebao.cn');
         }}
       >
         <QuestionCircleOutlined />
       </span>
       <Avatar />
-      <SelectLang className={actionClassName} />
     </div>
   );
 };

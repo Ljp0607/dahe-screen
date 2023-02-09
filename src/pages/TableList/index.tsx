@@ -231,7 +231,7 @@ const TableList: React.FC = () => {
         >
           <FormattedMessage id="pages.searchTable.config" defaultMessage="Configuration" />
         </a>,
-        <a key="subscribeAlert" href="https://procomponents.ant.design/">
+        <a key="subscribeAlert" href="https://www.dahebao.cn/">
           <FormattedMessage
             id="pages.searchTable.subscribeAlert"
             defaultMessage="Subscribe to alerts"

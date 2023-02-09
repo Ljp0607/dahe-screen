@@ -1,6 +1,6 @@
-﻿import { render, fireEvent, act } from '@testing-library/react';
+﻿import { TestBrowser } from '@@/testBrowser';
+import { act, fireEvent, render } from '@testing-library/react';
 import React from 'react';
-import { TestBrowser } from '@@/testBrowser';
 
 // @ts-ignore
 import { startMock } from '@@/requestRecordMock';
@@ -40,7 +40,7 @@ describe('Login Page', () => {
       />,
     );
 
-    await rootContainer.findAllByText('Ant Design');
+    await rootContainer.findAllByText('大河报社');
 
     act(() => {
       historyRef.current?.push('/user/login');
@@ -66,7 +66,7 @@ describe('Login Page', () => {
       />,
     );
 
-    await rootContainer.findAllByText('Ant Design');
+    await rootContainer.findAllByText('大河报社');
 
     const userNameInput = await rootContainer.findByPlaceholderText('Username: admin or user');
 
@@ -74,10 +74,10 @@ describe('Login Page', () => {
       fireEvent.change(userNameInput, { target: { value: 'admin' } });
     });
 
-    const passwordInput = await rootContainer.findByPlaceholderText('Password: ant.design');
+    const passwordInput = await rootContainer.findByPlaceholderText('Password: dahebao');
 
     act(() => {
-      fireEvent.change(passwordInput, { target: { value: 'ant.design' } });
+      fireEvent.change(passwordInput, { target: { value: 'dahebao' } });
     });
 
     await (await rootContainer.findByText('Login')).click();
@@ -85,7 +85,7 @@ describe('Login Page', () => {
     // 等待接口返回结果
     await waitTime(5000);
 
-    await rootContainer.findAllByText('Ant Design Pro');
+    await rootContainer.findAllByText('大河报社');
 
     expect(rootContainer.asFragment()).toMatchSnapshot();
 

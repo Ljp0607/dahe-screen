@@ -8,13 +8,15 @@ const Footer: React.FC = () => {
     id: 'app.copyright.produced',
     defaultMessage: '大河传媒有限公司出品',
   });
-
   const currentYear = new Date().getFullYear();
-
   return (
     <DefaultFooter
       style={{
         background: 'none',
+        // position: 'fixed',
+        // left: '50%',
+        // transform: 'translate(-50%)',
+        // bottom: '30px'
       }}
       copyright={`${currentYear} ${defaultMessage}`}
       links={[

@@ -16,11 +16,11 @@ import {
   ProFormText,
 } from '@ant-design/pro-components';
 import { useEmotionCss } from '@ant-design/use-emotion-css';
-import { FormattedMessage, history, SelectLang, useIntl, useModel, Helmet } from '@umijs/max';
+import { FormattedMessage, Helmet, history, useIntl, useModel } from '@umijs/max';
 import { Alert, message, Tabs } from 'antd';
-import Settings from '../../../../config/defaultSettings';
 import React, { useState } from 'react';
 import { flushSync } from 'react-dom';
+import Settings from '../../../../config/defaultSettings';
 
 const ActionIcons = () => {
   const langClassName = useEmotionCss(({ token }) => {
@@ -45,29 +45,28 @@ const ActionIcons = () => {
     </>
   );
 };
+//文字更改
+// const Lang = () => {
+//   const langClassName = useEmotionCss(({ token }) => {
+//     return {
+//       width: 42,
+//       height: 42,
+//       lineHeight: '42px',
+//       position: 'fixed',
+//       right: 16,
+//       borderRadius: token.borderRadius,
+//       ':hover': {
+//         backgroundColor: token.colorBgTextHover,
+//       },
+//     };
+//   });
 
-const Lang = () => {
-  const langClassName = useEmotionCss(({ token }) => {
-    return {
-      width: 42,
-      height: 42,
-      lineHeight: '42px',
-      position: 'fixed',
-      right: 16,
-      borderRadius: token.borderRadius,
-      ':hover': {
-        backgroundColor: token.colorBgTextHover,
-      },
-    };
-  });
-
-  return (
-    <div className={langClassName} data-lang>
-      {SelectLang && <SelectLang />}
-    </div>
-  );
-};
-
+//   return (
+//     <div className={langClassName} data-lang>
+//       {SelectLang && <SelectLang />}
+//     </div>
+//   );
+// };
 const LoginMessage: React.FC<{
   content: string;
 }> = ({ content }) => {
@@ -154,7 +153,7 @@ const Login: React.FC = () => {
           - {Settings.title}
         </title>
       </Helmet>
-      <Lang />
+      {/* <Lang /> */}
       <div
         style={{
           flex: '1',
@@ -167,7 +166,7 @@ const Login: React.FC = () => {
             maxWidth: '75vw',
           }}
           logo={<img alt="logo" src="/logo.svg" />}
-          title="Ant Design"
+          title="大河报社"
           subTitle={intl.formatMessage({ id: 'pages.layouts.userLayout.title' })}
           initialValues={{
             autoLogin: true,
@@ -237,8 +236,10 @@ const Login: React.FC = () => {
                     ),
                   },
                 ]}
+                initialValue="admin"
               />
               <ProFormText.Password
+                initialValue="dahebao"
                 name="password"
                 fieldProps={{
                   size: 'large',
@@ -246,7 +247,7 @@ const Login: React.FC = () => {
                 }}
                 placeholder={intl.formatMessage({
                   id: 'pages.login.password.placeholder',
-                  defaultMessage: '密码: ant.design',
+                  defaultMessage: '密码: dahebao',
                 })}
                 rules={[
                   {

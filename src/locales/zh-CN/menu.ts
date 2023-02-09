@@ -1,7 +1,11 @@
 export default {
   'menu.welcome': '欢迎',
+  'menu.test': '测试页',
   'menu.more-blocks': '更多区块',
   'menu.home': '首页',
+  'menu.charts': '豫视频大屏',
+  'menu.charts.Reporter': '记者传播力',
+  'menu.charts.Test': '测试大屏',
   'menu.admin': '管理页',
   'menu.admin.sub-page': '二级管理页',
   'menu.login': '登录',

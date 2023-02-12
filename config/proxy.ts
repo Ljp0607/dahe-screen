@@ -19,6 +19,13 @@ export default {
   //     changeOrigin: true,
   //   },
   // },
+  // proxy: {
+  //   '/api': {
+  //     'target': 'http://152.136.144.141/dahe',
+  //     'changeOrigin': true,
+  //     'pathRewrite': { '^/api': '' },
+  //   },
+  // },
 
   /**
    * @name 详细的代理配置

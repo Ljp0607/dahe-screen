@@ -2,7 +2,7 @@
 /* eslint-disable */
 
 declare namespace API {
-  type getNews = any;
+  type getNews = Array<any>;
   type CurrentUser = {
     name?: string;
     avatar?: string;

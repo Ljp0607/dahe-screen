@@ -10,7 +10,6 @@ import { errorConfig } from './requestErrorConfig';
 import { currentUser as queryCurrentUser } from './services/ant-design-pro/api';
 const isDev = process.env.NODE_ENV === 'development';
 const loginPath = '/user/login';
-
 /**
  * @see  https://umijs.org/zh-CN/plugins/plugin-initial-state
  * */

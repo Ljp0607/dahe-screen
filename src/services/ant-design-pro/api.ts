@@ -11,6 +11,15 @@ export async function currentUser(options?: { [key: string]: any }) {
     ...(options || {}),
   });
 }
+/** 获取当前的用户 GET /api/currentUser */
+export async function getNews(options?: { [key: string]: any }) {
+  return request<{
+    data: API.getNews;
+  }>('https://news.dahebao.cn/dahe/fanwenapi/newsreportercountList.do', {
+    method: 'GET',
+    ...(options || {}),
+  });
+}
 
 /** 退出登录接口 POST /api/login/outLogin */
 export async function outLogin(options?: { [key: string]: any }) {

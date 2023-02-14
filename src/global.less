@@ -16,6 +16,7 @@ body,
 .ant-layout {
   min-height: 100vh;
 }
+
 .ant-pro-sider.ant-layout-sider.ant-pro-sider-fixed {
   left: unset;
 }
@@ -30,6 +31,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+div {
+  box-sizing: border-box;
+}
+
 ul,
 ol {
   list-style: none;
@@ -39,11 +44,13 @@ ol {
   .ant-table {
     width: 100%;
     overflow-x: auto;
+
     &-thead > tr,
     &-tbody > tr {
       > th,
       > td {
         white-space: pre;
+
         > span {
           display: block;
         }

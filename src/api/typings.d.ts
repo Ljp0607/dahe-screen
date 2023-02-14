@@ -2,7 +2,43 @@
 /* eslint-disable */
 
 declare namespace API {
-  type getNews = Array<any>;
+  type Reporter = {
+    accountAuthRecordList?: {
+      createTime?: string;
+      createUserName?: string;
+      date?: string;
+      dateType?: string;
+      deleted?: string;
+      deptName?: string;
+      id?: number;
+      reportId?: string;
+      reportName?: string;
+      status?: string;
+      transmissionIndex?: number;
+      updateTime?: string;
+      updateUserName?: string;
+      version?: number;
+      ranking?: number;
+    }[];
+    date?: string;
+    dateType?: string;
+    page_count?: string;
+    queryDate?: string;
+    showCount?: number;
+    startNum?: number;
+  };
+
+  type News = Array<{
+    actionType: string;
+    activityNewsCover: string;
+    activityNewsTitle: string;
+    infoType: number;
+    introduce: string;
+    linkUrl: string;
+    sort: number;
+    tid: number;
+  }>;
+
   type CurrentUser = {
     name?: string;
     avatar?: string;

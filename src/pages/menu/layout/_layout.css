@@ -1,0 +1,10 @@
+.layout {
+  position: fixed;
+  transition: all 0.3s;
+  top: 50%;
+  left: 50%;
+  transform-origin: left top;
+  width: 1920px;
+  height: 1080px;
+  background-image: url('../../../assets//1-bg//7.png');
+}

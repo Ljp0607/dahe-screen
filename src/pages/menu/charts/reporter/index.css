@@ -1,4 +1,96 @@
 .contanier {
-  background: red;
   width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.contanier header {
+  flex: 1;
+}
+.contanier header .title {
+  margin: 0 auto;
+  width: 600px;
+  height: 80px;
+  line-height: 80px;
+  background-size: 100%, 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 40px;
+  text-align: center;
+  margin-top: 20px;
+}
+.contanier main {
+  flex: 10;
+  display: flex;
+}
+.contanier main .list {
+  width: 100%;
+  height: 100%;
+}
+.contanier main .list .title {
+  margin: 0 auto;
+  margin-top: 30px;
+  width: 380px;
+  height: 80px;
+  background-image: url('@/assets/3-bg/1002.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  color: #006EFF;
+  text-align: center;
+  line-height: 80px;
+  font-size: 40px;
+}
+.contanier main .list .title span {
+  background-image: -webkit-linear-gradient(top, #006EFF, #ffffff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.contanier main .list .content {
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 520px;
+  height: 750px;
+  background-image: url('@/assets/3-bg/1003.png');
+  padding: 30px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.contanier main .list .content .headline {
+  width: 100%;
+  text-align: center;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 110, 255, 0.2);
+}
+.contanier main .list .content .headline span {
+  font-weight: 600;
+  flex: 1;
+  color: #fff;
+  font-size: 26px;
+}
+.contanier main .list .content .con-list {
+  width: 100%;
+  height: 600px;
+  overflow-y: scroll;
+}
+.contanier main .list .content .con-list .ranking {
+  height: 60px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  border-bottom: #006EFF 1px solid;
+}
+.contanier main .list .content .con-list .ranking span {
+  flex: 1;
+  color: #fff;
+  font-size: 24px;
+}
+video {
+  display: block;
+  max-width: 100vw;
+  max-height: 100vh;
+  margin: 0 auto;
 }

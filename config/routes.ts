@@ -42,6 +42,7 @@ export default [
     name: 'charts',
     icon: 'DesktopOutlined',
     access: 'canAdmin',
+    component: './menu/layout/_layout.tsx',
     routes: [
       {
         path: '/charts',
@@ -60,6 +61,7 @@ export default [
         hideInBreadcrumb: true,
         target: '_blank',
       },
+      //测试页
       {
         path: '/charts/Test',
         name: 'Test',
@@ -74,7 +76,6 @@ export default [
       },
     ],
   },
-
   {
     path: '/admin',
     name: 'admin',
@@ -88,7 +89,7 @@ export default [
       {
         path: '/admin/sub-page',
         name: 'sub-page',
-        component: './Admin',
+        component: './menu/Admin',
       },
     ],
   },
@@ -105,6 +106,6 @@ export default [
   {
     path: '*',
     layout: false,
-    component: './404',
+    component: './menu/404',
   },
 ];

@@ -2,7 +2,6 @@ import { PlaySquareFilled } from '@ant-design/icons';
 import { DefaultFooter } from '@ant-design/pro-components';
 import { useIntl } from '@umijs/max';
 import React from 'react';
-// import { ReactComponent as Logo } from '../../assets/logo.svg'
 
 const Footer: React.FC = () => {
   const intl = useIntl();
@@ -15,10 +14,6 @@ const Footer: React.FC = () => {
     <DefaultFooter
       style={{
         background: 'none',
-        // position: 'fixed',
-        // left: '50%',
-        // transform: 'translate(-50%)',
-        // bottom: '30px'
       }}
       copyright={`${currentYear} ${defaultMessage}`}
       links={[

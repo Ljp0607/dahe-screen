@@ -40,8 +40,8 @@ export default [
   {
     path: '/charts',
     name: 'charts',
-    icon: 'DesktopOutlined',
     access: 'canAdmin',
+    icon: 'DesktopOutlined',
     component: './menu/layout/_layout.tsx',
     routes: [
       {
@@ -53,6 +53,19 @@ export default [
         path: '/charts/Reporter',
         name: 'Reporter',
         component: './menu/charts/reporter',
+        headerRender: false,
+        footerRender: false,
+        menuRender: false,
+        menuHeaderRender: false,
+        flatMenu: true,
+        hideInBreadcrumb: true,
+        target: '_blank',
+      },
+      // download
+      {
+        path: '/charts/Download',
+        name: 'Download',
+        component: './menu/charts/download',
         headerRender: false,
         footerRender: false,
         menuRender: false,
@@ -105,7 +118,6 @@ export default [
   },
   {
     path: '*',
-    layout: false,
-    component: './menu/404',
+    redirect: '/user/login',
   },
 ];

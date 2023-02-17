@@ -34,3 +34,14 @@ export async function getReporter(options?: { [key: string]: any; type: number }
     },
   });
 }
+
+/** 获取下载量分析 */
+export async function getDownload(options?: { [key: string]: string }) {
+  return request<{ data: API.Download }>(
+    baseUrl + 'noLoginApi/downloadChannel/clickAndDownloadCountListAll.do',
+    {
+      method: 'GET',
+      params: options,
+    },
+  );
+}

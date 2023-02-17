@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './index.less';
 type Props = {
   title: string;
   Img: string;
@@ -12,7 +12,7 @@ const Title: React.FC<Props> = (props) => {
         backgroundImage: `url(${props.Img})`,
       }}
     >
-      {props.title}
+      <span>{props.title}</span>
     </div>
   );
 };

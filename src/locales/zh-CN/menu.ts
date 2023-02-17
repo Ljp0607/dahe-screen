@@ -5,6 +5,7 @@ export default {
   'menu.home': '首页',
   'menu.charts': '豫视频大屏',
   'menu.charts.Reporter': '记者传播力',
+  'menu.charts.Download': '下载详情',
   'menu.charts.Test': '测试大屏',
   'menu.admin': '管理页',
   'menu.admin.sub-page': '二级管理页',

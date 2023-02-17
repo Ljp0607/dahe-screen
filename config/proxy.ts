@@ -19,13 +19,13 @@ export default {
   //     changeOrigin: true,
   //   },
   // },
-  // proxy: {
-  //   '/api': {
-  //     'target': 'http://152.136.144.141/dahe',
-  //     'changeOrigin': true,
-  //     'pathRewrite': { '^/api': '' },
-  //   },
-  // },
+  proxy: {
+    '/api': {
+      target: 'http://localhost:8001',
+      changeOrigin: true,
+      pathRewrite: { '^/api': '' },
+    },
+  },
 
   /**
    * @name 详细的代理配置
@@ -33,7 +33,7 @@ export default {
    */
   test: {
     '/api/': {
-      target: 'https://proapi.azurewebsites.net',
+      target: 'http://localhost:8001',
       changeOrigin: true,
       pathRewrite: { '^': '' },
     },

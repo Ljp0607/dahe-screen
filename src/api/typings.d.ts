@@ -2,6 +2,15 @@
 /* eslint-disable */
 
 declare namespace API {
+  type Download = {
+    type_no?: number;
+    type_name: string;
+    downloadTotal: number;
+    clickTotal: number;
+    parent_type_no?: string;
+    priority?: number;
+  }[];
+
   type Reporter = {
     accountAuthRecordList?: {
       createTime?: string;

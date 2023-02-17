@@ -8,18 +8,19 @@ import routes from './routes';
 const { REACT_APP_ENV = 'dev' } = process.env;
 
 export default defineConfig({
+  history: { type: 'hash' },
   /**
    * @name 部署到非根目录
    * @description
    */
-  base: '/screen/',
-  publicPath: '/screen/',
+  // base: '/screen/',
+  // publicPath: './',
   /**
    * @name 开启 hash 模式
    * @description 让 build 之后的产物包含 hash 后缀。通常用于增量发布和避免浏览器加载缓存。
    * @doc https://umijs.org/docs/api/config#hash
    */
-  // hash: true,
+  hash: true,
   /**
    * @name 兼容性设置
    * @description 设置 ie11 不一定完美兼容，需要检查自己使用的所有依赖
@@ -128,6 +129,7 @@ export default defineConfig({
    * @doc https://umijs.org/docs/max/access
    */
   access: {},
+
   /**
    * @name <head> 中额外的 script
    * @description 配置 <head> 中额外的 script

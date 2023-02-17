@@ -14,7 +14,6 @@ async function getFakeCaptcha(req: Request, res: Response) {
 }
 
 const { ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION } = process.env;
-
 /**
  * 当前用户的权限，如果为空代表没登录
  * current user access， if is '', user need login

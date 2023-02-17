@@ -1,50 +1,13 @@
-import { getReporter } from '@/api/modules';
 import React, { useEffect, useRef } from 'react';
-import { useRequest } from 'umi';
+// import {}
 import './index.less';
 type dataProps = {
-  type?: number;
-};
-//获取数据组件
-const ListData: React.FC<dataProps> = (props) => {
-  const { data, error, loading } = useRequest(() => {
-    return getReporter({
-      type: props.type ? props.type : 1,
-    });
-  });
-  if (loading) {
-    return <div> loading...</div>;
-  }
-  if (error) {
-    return <div>{error.message}</div>;
-  }
-  //遍历记者加入排名
-
-  //过滤传播力为0的记者
-  if (data)
-    data.accountAuthRecordList = data?.accountAuthRecordList?.filter(
-      (item) => item.transmissionIndex && item.transmissionIndex > 0,
-    );
-  return (
-    <>
-      {data?.accountAuthRecordList?.map((item, index) => (
-        <div key={item.ranking} className="ranking">
-          <span>{index + 1}</span>
-          <span>{item.reportName}</span>
-          <span>{item.transmissionIndex}</span>
-        </div>
-      ))}
-    </>
-  );
-};
-type Props = {
-  data?: Array<any>;
+  data?: API.Download;
   title?: string;
-  drawRule?: number;
-  show?: boolean;
-  changeShow?: (e: boolean) => void;
+  content?: string;
 };
-const List: React.FC<Props> = (props) => {
+const Ranking: React.FC<dataProps> = (props) => {
+  //获取滑动组件
   const scrollRef = useRef<HTMLDivElement | null>(null);
   //创建常量定时器
   let timer: any = null;
@@ -59,7 +22,6 @@ const List: React.FC<Props> = (props) => {
         (scrollRef.current?.scrollHeight ? scrollRef.current?.scrollHeight : 0)
     ) {
       scrollRef.current.scrollTop = 0;
-      if (props.changeShow) props.changeShow(false);
     }
   }, 50);
   //鼠标事件进入
@@ -78,7 +40,6 @@ const List: React.FC<Props> = (props) => {
           (scrollRef.current?.scrollHeight ? scrollRef.current?.scrollHeight : 0)
       ) {
         scrollRef.current.scrollTop = 0;
-        if (props.changeShow) props.changeShow(false);
       }
     }, 50);
   };
@@ -87,23 +48,29 @@ const List: React.FC<Props> = (props) => {
     return () => {
       clearInterval(timer);
     };
-  }, [props.show]);
+  });
   return (
-    <div className="list">
-      <div className="title">
-        <span>{props.title}</span>
+    <div>
+      <div className="list-title">
+        <span>各部门总下载量</span>
       </div>
-      <div className="content">
+      <div className="list">
         <div className="headline">
-          <span>排名</span>
-          <span>姓名</span>
-          <span>传播力</span>
+          <span className="list-div">排名</span>
+          <span style={{ flex: 1 }}>部门</span>
+          <span className="list-div">下载量</span>
         </div>
         <div onMouseEnter={onEnter} onMouseLeave={onLeave} className="con-list" ref={scrollRef}>
-          <ListData type={props.drawRule} />
+          {props.data?.map((item, index) => (
+            <div key={item.type_no} className="ranking">
+              <span className="list-div">{index + 1}</span>
+              <span style={{ flex: 1 }}>{item.type_name}</span>
+              <span className="list-div">{item.downloadTotal}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   );
 };
-export default List;
+export default Ranking;

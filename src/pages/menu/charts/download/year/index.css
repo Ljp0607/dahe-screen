@@ -1,0 +1,9 @@
+.year {
+  background-image: url('@/assets/3-bg/18.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 500px;
+  height: 400px;
+  padding: 30px 0 0 30px;
+  margin: 80px;
+}

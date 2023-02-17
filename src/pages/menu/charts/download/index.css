@@ -1,0 +1,14 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.content header {
+  flex: 1;
+}
+.content main {
+  display: flex;
+  flex: 10;
+  justify-content: flex-start;
+}

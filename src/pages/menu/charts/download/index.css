@@ -11,4 +11,13 @@
   display: flex;
   flex: 10;
   justify-content: flex-start;
+  position: relative;
+}
+.content main .map {
+  width: 600px;
+  height: 400px;
+  top: 50px;
+  right: 60px;
+  position: absolute;
+  border: 1px solid red;
 }

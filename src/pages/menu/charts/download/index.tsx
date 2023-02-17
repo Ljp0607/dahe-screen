@@ -5,6 +5,8 @@ import Ranking from './ranking/index';
 // import List from '../components/list'
 import { getDownload } from '@/api/modules';
 import { useRequest } from '@umijs/max';
+import Line from './line/index';
+import Map from './map/index';
 import Year from './year/index';
 const Download: React.FC = () => {
   //初始化获取数据
@@ -37,11 +39,14 @@ const Download: React.FC = () => {
         />
       </header>
       <main>
-        {/* <List  /> */}
         <Ranking data={downSult} title="部门" content="下载量" />
-        <Year />
-        {/* <Ranking data={downSult} title='部门' content='下载量' />
-        <Ranking data={downSult} title='部门' content='下载量' /> */}
+        <div>
+          <Year />
+          <Line />
+        </div>
+        <div className="map">
+          <Map />
+        </div>
       </main>
     </div>
   );

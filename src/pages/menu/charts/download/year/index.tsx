@@ -1,9 +1,30 @@
 import { getDownload } from '@/api/modules';
-import * as echarts from 'echarts';
+import { PieChart, PieSeriesOption } from 'echarts/charts';
+import {
+  LegendComponent,
+  LegendComponentOption,
+  TitleComponent,
+  TitleComponentOption,
+  TooltipComponent,
+  TooltipComponentOption,
+} from 'echarts/components';
+import * as echarts from 'echarts/core';
+import { LabelLayout } from 'echarts/features';
+import { CanvasRenderer } from 'echarts/renderers';
+
 import React, { useEffect, useRef } from 'react';
 import './index.less';
-type EChartsOption = echarts.EChartsOption;
-//定义数据
+echarts.use([
+  TitleComponent,
+  TooltipComponent,
+  LegendComponent,
+  PieChart,
+  CanvasRenderer,
+  LabelLayout,
+]);
+type EChartsOption = echarts.ComposeOption<
+  TitleComponentOption | TooltipComponentOption | LegendComponentOption | PieSeriesOption
+>; //定义数据
 let data: Array<{
   value: number;
   name: string;
@@ -37,7 +58,9 @@ const getSule = async () => {
     })
     .then(() => {
       option = {
+        label: { color: '#fff' },
         backgroundColor: 'none',
+        textShadowColor: 'false',
         title: {
           text: '2023年豫视频',
           left: 'center',
@@ -62,7 +85,7 @@ const getSule = async () => {
           {
             name: '大河报·豫视频',
             type: 'pie',
-            radius: '50%',
+            radius: '60%',
             data: data,
             emphasis: {
               itemStyle: {

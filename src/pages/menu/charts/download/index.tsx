@@ -1,12 +1,11 @@
+import { getDownload } from '@/api/modules';
+import { useRequest } from '@umijs/max';
 import React from 'react';
 import Title from '../components/title';
 import './index.less';
-import Ranking from './ranking/index';
-// import List from '../components/list'
-import { getDownload } from '@/api/modules';
-import { useRequest } from '@umijs/max';
 import Line from './line/index';
 import Map from './map/index';
+import Ranking from './ranking/index';
 import Year from './year/index';
 const Download: React.FC = () => {
   //初始化获取数据
@@ -29,7 +28,6 @@ const Download: React.FC = () => {
   downSult?.forEach((item, index) => {
     item.type_no = index + 1;
   });
-
   return (
     <div className="content">
       <header>

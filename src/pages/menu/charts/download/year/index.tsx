@@ -11,7 +11,6 @@ import {
 import * as echarts from 'echarts/core';
 import { LabelLayout } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
-
 import React, { useEffect, useRef } from 'react';
 import './index.less';
 echarts.use([
@@ -62,7 +61,7 @@ const getSule = async () => {
         backgroundColor: 'none',
         textShadowColor: 'false',
         title: {
-          text: '2023年豫视频',
+          text: '2023年豫视频部门下载占比',
           left: 'center',
           textStyle: {
             color: '#fff',

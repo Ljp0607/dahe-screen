@@ -8,16 +8,15 @@
   flex: 1;
 }
 .content main {
+  position: relative;
   display: flex;
   flex: 10;
   justify-content: flex-start;
-  position: relative;
 }
 .content main .map {
-  width: 600px;
-  height: 400px;
-  top: 50px;
-  right: 60px;
   position: absolute;
-  border: 1px solid red;
+  top: 50px;
+  right: 30px;
+  min-width: 600px;
+  min-height: 460px;
 }

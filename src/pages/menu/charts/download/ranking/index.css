@@ -1,8 +1,8 @@
 .list-title {
   width: 300px;
   height: 60px;
-  margin-left: 130px;
   margin-top: -30px;
+  margin-left: 130px;
   color: #006eff;
   font-size: 30px;
   line-height: 60px;
@@ -57,6 +57,7 @@
   display: flex;
   align-items: center;
   height: 60px;
+  cursor: pointer;
   text-align: center;
   border-bottom: #006eff 1px solid;
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-// import {}
+import { history } from 'umi';
 import './index.less';
 type dataProps = {
   data?: API.Download;
@@ -43,6 +43,14 @@ const Ranking: React.FC<dataProps> = (props) => {
       }
     }, 50);
   };
+  //点击跳转部门详情页
+  const clickItem = (e: API.Download[0]) => {
+    console.log(e);
+    console.log(history);
+    history.push({
+      pathname: '/charts/Department',
+    });
+  };
   //结束时卸载组件
   useEffect(() => {
     return () => {
@@ -62,7 +70,7 @@ const Ranking: React.FC<dataProps> = (props) => {
         </div>
         <div onMouseEnter={onEnter} onMouseLeave={onLeave} className="con-list" ref={scrollRef}>
           {props.data?.map((item, index) => (
-            <div key={item.type_no} className="ranking">
+            <div onClick={() => clickItem(item)} key={item.type_no} className="ranking">
               <span className="list-div">{index + 1}</span>
               <span style={{ flex: 1 }}>{item.type_name}</span>
               <span className="list-div">{item.downloadTotal}</span>

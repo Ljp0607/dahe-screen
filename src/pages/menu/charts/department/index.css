@@ -1,15 +1,17 @@
-.content {
+.contanier {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
 }
-.content header {
+.contanier header {
   flex: 1;
 }
-.content main {
-  position: relative;
+.contanier main {
   display: flex;
   flex: 10;
-  justify-content: flex-start;
+}
+.contanier main .column {
+  width: 800px;
+  height: 500px;
 }

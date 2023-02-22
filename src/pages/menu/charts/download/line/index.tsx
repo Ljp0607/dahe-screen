@@ -39,6 +39,7 @@ type EChartsOption = echarts.ComposeOption<
   | LegendComponentOption
   | LineSeriesOption
 >;
+
 //获取近n个月的日期
 const getDate = (num: number) => {
   const date = new Date();
@@ -179,10 +180,10 @@ option = {
   series: datas,
 };
 const Line: React.FC = () => {
-  // console.log(month, year, end, start);
   const lineRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
     start().then(() => {
+      // console.log('datas', datas);
       if (lineRef.current)
         echarts
           .init(lineRef.current, 'dark', {

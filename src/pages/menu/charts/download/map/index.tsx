@@ -1,10 +1,7 @@
+import { getDownload } from '@/api/modules';
 import React, { useEffect, useRef } from 'react';
 import './index.less';
-// import * as echarts from 'echarts';
-import { getDownload } from '@/api/modules';
-import axios from 'axios';
-import * as echarts from 'echarts/core';
-
+// import axios from 'axios';
 import { BarChart, MapChart, MapSeriesOption } from 'echarts/charts';
 import {
   GeoComponent,
@@ -12,8 +9,10 @@ import {
   VisualMapComponent,
   VisualMapComponentOption,
 } from 'echarts/components';
+import * as echarts from 'echarts/core';
 import { UniversalTransition } from 'echarts/features';
 import { CanvasRenderer } from 'echarts/renderers';
+import Json from './index.json';
 echarts.use([
   BarChart,
   VisualMapComponent,
@@ -57,8 +56,6 @@ const getDown = async () => {
     data.sort(function (a, b) {
       return a.value - b.value;
     });
-    console.log('data,data', data);
-
     barOption = {
       backgroundColor: 'none',
       xAxis: {
@@ -69,6 +66,10 @@ const getDown = async () => {
         data: data.map(function (item) {
           return item.name;
         }),
+      },
+      title: {
+        text: '十八地市拉新排行',
+        left: 'center',
       },
       tooltip: {
         trigger: 'axis',
@@ -99,6 +100,10 @@ const getDown = async () => {
         text: ['High', 'Low'],
         calculable: true,
       },
+      title: {
+        text: '十八地市拉新排行',
+        left: 'center',
+      },
       tooltip: {
         // trigger: 'axis',
         trigger: 'item',
@@ -120,27 +125,19 @@ const getDown = async () => {
     };
   });
 };
-//获取城市信息
-const getUsaJson = async () => {
-  await axios.get('https://geo.datav.aliyun.com/areas_v3/bound/410000_full.json').then((res) => {
-    echarts.registerMap('MapChart', res.data, {});
-  });
-};
 const Map: React.FC = () => {
   const MapRef = useRef<HTMLDivElement | null>(null);
-  // const [currentMap, setCurrentMap] = useState<echarts.EChartsCoreOption | null>(null)
   let myChart: any;
   let currentOption = mapOption;
   useEffect(() => {
     getDown().then(() => {
-      getUsaJson().then(() => {
-        if (MapRef.current) {
-          myChart = echarts.init(MapRef.current, 'dark', {
-            renderer: 'svg',
-          });
-          myChart.setOption(mapOption);
-        }
-      });
+      echarts.registerMap('MapChart', Json as any, {});
+      if (MapRef.current) {
+        myChart = echarts.init(MapRef.current, 'dark', {
+          renderer: 'svg',
+        });
+        myChart.setOption(mapOption);
+      }
     });
     let timer = setInterval(() => {
       currentOption = currentOption === mapOption ? barOption : mapOption;
@@ -151,10 +148,6 @@ const Map: React.FC = () => {
     };
   }, []);
 
-  return (
-    <div className="mapValue" ref={MapRef}>
-      123
-    </div>
-  );
+  return <div className="mapValue" ref={MapRef}></div>;
 };
 export default Map;

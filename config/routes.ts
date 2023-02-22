@@ -11,6 +11,7 @@
  * @doc https://umijs.org/docs/guides/routes
  */
 export default [
+  //登录页
   {
     path: '/user',
     layout: false,
@@ -40,7 +41,7 @@ export default [
   {
     path: '/charts',
     name: 'charts',
-    access: 'canAdmin',
+    // access: 'canAdmin',
     icon: 'DesktopOutlined',
     component: './menu/layout/_layout.tsx',
     routes: [
@@ -74,6 +75,20 @@ export default [
         hideInBreadcrumb: true,
         target: '_blank',
       },
+      // download-ment
+      {
+        path: '/charts/Department',
+        name: 'Department',
+        component: './menu/charts/department',
+        headerRender: false,
+        footerRender: false,
+        menuRender: false,
+        hideInMenu: true,
+        menuHeaderRender: false,
+        flatMenu: false,
+        hideInBreadcrumb: true,
+        target: '_blank',
+      },
       //测试页
       {
         path: '/charts/Test',
@@ -93,7 +108,7 @@ export default [
     path: '/admin',
     name: 'admin',
     icon: 'crown',
-    access: 'canAdmin',
+    // access: 'canAdmin',
     routes: [
       {
         path: '/admin',
@@ -112,12 +127,14 @@ export default [
     path: '/list',
     component: './TableList',
   },
+
+  //首页重定向
   {
     path: '/',
     redirect: '/welcome',
   },
   {
     path: '*',
-    redirect: '/user/login',
+    redirect: '/welcome',
   },
 ];

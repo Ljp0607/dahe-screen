@@ -1,7 +1,12 @@
 .mapValue {
+  position: absolute;
   width: 680px;
   height: 450px;
   background-image: url('@/assets/3-bg/21.png');
   background-repeat: no-repeat;
   background-size: 100% 100%;
+  top: 50px;
+  box-sizing: border-box;
+  padding: 10px;
+  right: 30px;
 }

@@ -61,7 +61,7 @@ const getSule = async () => {
         backgroundColor: 'none',
         textShadowColor: 'false',
         title: {
-          text: '2023年豫视频部门下载占比',
+          text: '2023年部门拉新',
           left: 'center',
           textStyle: {
             color: '#fff',

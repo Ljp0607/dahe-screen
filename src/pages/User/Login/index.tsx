@@ -9,10 +9,10 @@ import {
   ProFormText,
 } from '@ant-design/pro-components';
 import { useEmotionCss } from '@ant-design/use-emotion-css';
-import { FormattedMessage, Helmet, history, useIntl, useModel } from '@umijs/max';
+import { FormattedMessage, Helmet, history, useIntl } from '@umijs/max';
 import { Alert, message, Tabs } from 'antd';
 import React, { useState } from 'react';
-import { flushSync } from 'react-dom';
+// import { flushSync } from 'react-dom';
 import Settings from '../../../../config/defaultSettings';
 //封装按钮图表
 // const ActionIcons = () => {
@@ -78,7 +78,7 @@ const LoginMessage: React.FC<{
 const Login: React.FC = () => {
   const [userLoginState, setUserLoginState] = useState<API.LoginResult>({});
   const [type, setType] = useState<string>('account');
-  const { initialState, setInitialState } = useModel('@@initialState');
+  // const { initialState, setInitialState } = useModel('@@initialState');
 
   //登录页样式,使用useEmotionCss
   const containerClassName = useEmotionCss(() => {
@@ -96,15 +96,15 @@ const Login: React.FC = () => {
   const intl = useIntl();
   //获取用户信息并赋值
   const fetchUserInfo = async () => {
-    const userInfo = await initialState?.fetchUserInfo?.();
-    if (userInfo) {
-      flushSync(() => {
-        setInitialState((s) => ({
-          ...s,
-          currentUser: userInfo,
-        }));
-      });
-    }
+    // const userInfo = await initialState?.fetchUserInfo?.();
+    // if (userInfo) {
+    //   flushSync(() => {
+    //     setInitialState((s) => ({
+    //       ...s,
+    //       currentUser: userInfo,
+    //     }));
+    //   });
+    // }
   };
   //传入表单数据
   const handleSubmit = async (values: API.LoginParams) => {
@@ -163,7 +163,7 @@ const Login: React.FC = () => {
             minWidth: 280,
             maxWidth: '75vw',
           }}
-          logo={<img alt="logo" src="/logo.svg" />}
+          logo={<img alt="logo" src="/screen/logo.svg" />}
           title="大河报社"
           subTitle={intl.formatMessage({ id: 'pages.layouts.userLayout.title' })}
           initialValues={{

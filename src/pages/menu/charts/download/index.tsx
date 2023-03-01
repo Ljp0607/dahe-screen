@@ -27,7 +27,7 @@ const Download: React.FC = () => {
     .sort((x, y) => y.downloadTotal - x.downloadTotal);
   //向数组中添加唯一的key
   downSult?.forEach((item, index) => {
-    item.type_no = index + 1;
+    item.type_no = (index + 1).toString();
   });
   return (
     <div className="content">

@@ -12,6 +12,16 @@
   flex: 10;
 }
 .contanier main .column {
+  width: 1500px;
+  height: 1000px;
+}
+.contanier main .target {
   width: 800px;
-  height: 500px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+}
+.contanier main .radar {
+  width: 800px;
+  height: 580px;
 }

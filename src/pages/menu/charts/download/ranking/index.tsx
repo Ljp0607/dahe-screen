@@ -47,9 +47,17 @@ const Ranking: React.FC<dataProps> = (props) => {
   const clickItem = (e: API.Download[0]) => {
     console.log(e);
     console.log(history);
-    history.push({
-      pathname: '/charts/Department',
-    });
+    console.log();
+    console.log(window.location);
+    window.open(
+      window.location.origin +
+        window.location.pathname +
+        '#/screen/charts/Department' +
+        `?type_name=${e.type_name}`,
+    );
+    // history.push({
+    //   pathname: '/charts/Department',
+    // });
   };
   //结束时卸载组件
   useEffect(() => {

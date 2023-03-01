@@ -1,8 +1,11 @@
 .title {
-  width: 600px;
+  min-width: 600px;
+  max-width: 800px;
+  white-space: nowrap;
+  overflow: hidden;
   height: 80px;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 5px;
   color: #fff;
   font-size: 40px;
   line-height: 80px;

@@ -3,7 +3,7 @@
 
 declare namespace API {
   type Download = {
-    type_no?: number;
+    type_no?: string;
     type_name: string;
     downloadTotal: number;
     clickTotal: number;

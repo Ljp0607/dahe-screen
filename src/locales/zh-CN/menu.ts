@@ -8,6 +8,7 @@ export default {
   'menu.charts.Download': '下载详情',
   'menu.charts.Department': '各部门详情',
   'menu.charts.Test': '测试大屏',
+  'menu.charts.LiveView': '指挥中心',
   'menu.admin': '管理页',
   'menu.admin.sub-page': '二级管理页',
   'menu.login': '登录',

@@ -34,7 +34,6 @@ export async function getReporter(options?: { [key: string]: any; type: number }
     },
   });
 }
-
 /** 获取下载量分析 */
 export async function getDownload(options?: { [key: string]: string }) {
   return request<{ data: API.Download }>(
@@ -44,4 +43,32 @@ export async function getDownload(options?: { [key: string]: string }) {
       params: options,
     },
   );
+}
+/** 获取直播数据 */
+export async function getLive() {
+  return request<{ data: API.Livelist }>(baseUrl + 'appyzb/liveroomhomedata', {
+    method: 'POST',
+    params: {
+      sign: '637586292ebf2c5fabab863734fc6a12',
+      data: {
+        client_type: 200,
+      },
+    },
+  });
+}
+/** 获取热门视频数据 */
+export async function getHot() {
+  return request<API.hotList>(baseUrl + 'fanwenapi/vedioCountList.do', {
+    method: 'GET',
+  });
+}
+/** 获取爆料详情 */
+export async function getExpose() {
+  return request<{ data: API.hotList }>(baseUrl + 'app/announce/announceList', {
+    method: 'GET',
+    params: {
+      page_index: 0,
+      page_count: 12,
+    },
+  });
 }

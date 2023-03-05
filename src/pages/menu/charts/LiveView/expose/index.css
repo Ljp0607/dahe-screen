@@ -1,0 +1,16 @@
+.expose {
+  width: 400px;
+  border: 1px solid red;
+  padding-top: 10px;
+}
+.expose .ex_title {
+  text-align: center;
+  font-size: 30px;
+  background-image: -webkit-linear-gradient(top, #006eff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.Pagination {
+  color: red;
+}

@@ -4,6 +4,7 @@ import Column from './column/index';
 import './index.less';
 import Radar from './radar';
 import Target from './target/index';
+
 const type_name: string = decodeURI(location.href.slice(location.href.indexOf('type_name') + 10));
 const Department: React.FC = () => {
   return (

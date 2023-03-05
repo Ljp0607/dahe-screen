@@ -49,6 +49,19 @@ export default [
         path: '/charts',
         redirect: '/charts/Test',
       },
+      // 新闻指挥中心
+      {
+        path: '/charts/LiveView',
+        name: 'LiveView',
+        component: './menu/charts/LiveView',
+        headerRender: false,
+        footerRender: false,
+        menuRender: false,
+        menuHeaderRender: false,
+        flatMenu: true,
+        hideInBreadcrumb: true,
+        target: '_blank',
+      },
       // reporter
       {
         path: '/charts/Reporter',

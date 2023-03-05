@@ -1,0 +1,73 @@
+.videoLive {
+  position: relative;
+  width: 1020px;
+  height: 600px;
+  margin: 20px auto;
+  padding: 20px 10px;
+  background-image: url('@/assets/3-bg/21.png');
+  background-size: 100% 100%;
+
+  .video-js {
+    border-radius: 10px;
+  }
+  .cut {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-around;
+    width: 160px;
+    height: 30px;
+    color: #fff;
+    transform: translate(-50%);
+
+    div {
+      width: 70px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border: 1px solid RGBA(0, 110, 255, 0.6);
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .btn {
+      background: #006eff;
+    }
+  }
+
+  .carousel {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-around;
+    width: 180px;
+    transform: translate(-50%);
+
+    .dat {
+      padding: 5px;
+      cursor: pointer;
+      .car_dat {
+        width: 12px;
+        height: 4px;
+        background: #7b86a4;
+        border-radius: 2px;
+        transition: 0.2s;
+      }
+    }
+
+    .dat:hover .car_dat {
+      background: #fff;
+    }
+
+    .btn {
+      .car_dat {
+        width: 24px;
+        background: #fff;
+      }
+    }
+  }
+}

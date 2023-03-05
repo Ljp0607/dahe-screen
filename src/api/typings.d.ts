@@ -2,6 +2,58 @@
 /* eslint-disable */
 
 declare namespace API {
+  type exposeList = {
+    showCount: number;
+    page_index: number;
+    startNum: number;
+    page_count: number;
+    announceList: {
+      announceDesc: string;
+      createTime: string;
+    }[];
+  };
+
+  type hotList = {
+    short_video_title: string;
+    short_video_id: string;
+    community_name: string;
+    edit_man: string;
+    short_video_url: string;
+    short_video_publish_time: string;
+    short_video_browse_num: number;
+    words_newsman: string;
+  }[];
+  type Livelist = {
+    liveList?: {
+      line_user?: 8081;
+      user_name?: string;
+      video_img?: string;
+      yynum?: number;
+      newsCommentsNum?: number;
+      studio_broadcast_address?: string;
+      recorded_address?: string;
+      typesOf?: number;
+      pushed_back_flow_end?: string;
+      action?: string;
+      communityName?: string;
+      communityId?: number;
+      live_start_time?: string;
+      channel_name?: string;
+      live_end_time?: string;
+      user_head?: string;
+      livenum?: number;
+      live_state?: number;
+      user_num?: number;
+      video_title?: string;
+      user_id?: string;
+      send_comments_type?: number;
+      communityImg?: string;
+      newsLabel?: string;
+      labelColour?: string;
+      video_id?: string;
+    }[];
+    reserveStudioSize?: number;
+  };
   type Download = {
     type_no?: string;
     type_name: string;

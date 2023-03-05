@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // import './index.css'
 import { getDownload } from '@/api/modules';
-import Water from '../../components/water';
+import Water from '../../components/water/index';
 type Props = {
   type_name: string;
 };

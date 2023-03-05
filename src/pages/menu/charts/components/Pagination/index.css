@@ -1,0 +1,22 @@
+.pagination {
+  width: 240px;
+  height: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+.pagination .chuck {
+  cursor: pointer;
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  line-height: 26px;
+  border: 2px solid rgba(0, 110, 255, 0.6);
+}
+.pagination .btn {
+  background: RGBA(0, 110, 255);
+}
+.pagination .chuck:hover {
+  background: RGBA(0, 110, 255);
+}

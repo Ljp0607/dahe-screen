@@ -1,0 +1,64 @@
+.videoLive {
+  background-image: url('@/assets/3-bg/21.png');
+  background-size: 100% 100%;
+  padding: 20px 10px;
+  margin: 20px auto;
+  position: relative;
+  width: 1020px;
+  height: 600px;
+}
+.videoLive .video-js {
+  border-radius: 10px;
+}
+.videoLive .cut {
+  z-index: 10;
+  color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  transform: translate(-50%);
+  width: 160px;
+  height: 30px;
+  display: flex;
+  justify-content: space-around;
+}
+.videoLive .cut div {
+  user-select: none;
+  cursor: pointer;
+  width: 70px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 1px solid rgba(0, 110, 255, 0.6);
+}
+.videoLive .cut .btn {
+  background: #006EFF;
+}
+.videoLive .carousel {
+  position: absolute;
+  z-index: 10;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 180px;
+  display: flex;
+  justify-content: space-around;
+}
+.videoLive .carousel .dat {
+  cursor: pointer;
+  padding: 5px;
+}
+.videoLive .carousel .dat .car_dat {
+  width: 12px;
+  height: 4px;
+  border-radius: 2px;
+  background: #7B86A4;
+  transition: 0.2s;
+}
+.videoLive .carousel .dat:hover .car_dat {
+  background: #fff;
+}
+.videoLive .carousel .btn .car_dat {
+  width: 24px;
+  background: #fff;
+}

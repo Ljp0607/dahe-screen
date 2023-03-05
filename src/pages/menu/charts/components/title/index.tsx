@@ -1,8 +1,8 @@
 import React from 'react';
 import './index.less';
 type Props = {
-  title: string;
-  Img: string;
+  title?: string;
+  Img?: string;
 };
 const Title: React.FC<Props> = (props) => {
   return (

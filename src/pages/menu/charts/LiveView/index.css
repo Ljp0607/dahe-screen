@@ -1,0 +1,13 @@
+.contanier {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+.contanier header {
+  flex: 1;
+}
+.contanier main {
+  display: flex;
+  flex: 10;
+}

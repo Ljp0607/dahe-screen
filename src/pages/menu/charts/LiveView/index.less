@@ -81,6 +81,18 @@
       .hotrise {
         width: 400px;
         height: 300px;
+        padding-top: 10px;
+        color: #fff;
+        text-align: center;
+
+        .hot_content {
+          height: 250px;
+          overflow-y: scroll;
+          font-size: 18px;
+          line-height: 40px;
+
+          // .hot_list {}
+        }
       }
 
       //热门
@@ -98,7 +110,7 @@
 
         .real_content {
           width: 360px;
-          height: 200px;
+          height: 220px;
           margin: 0 auto;
           padding: 0px 8px;
           overflow-y: scroll;
@@ -111,11 +123,12 @@
           scrollbar-width: none;
 
           .newsReport {
+            // padding: 2px 0;
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            height: 50px;
-            line-height: 25px;
+            height: 55px;
+            line-height: 20px;
             border-bottom: 1px solid #1651b8;
 
             .real_ranking {
@@ -223,17 +236,22 @@
     .con_main {
       flex: 2.5;
 
+      //下方搜索框
       .search {
         width: 1060px;
         height: 360px;
-        padding-top: 20px;
+        padding-top: 10px;
+
+        .search_title {
+          margin-bottom: 20px;
+          font-size: 30px;
+        }
 
         .ser_card {
           display: flex;
           justify-content: space-around;
           width: 100%;
           height: 300px;
-          padding: 0 10px;
 
           .card {
             position: relative;
@@ -242,9 +260,52 @@
             color: #fff;
             text-align: center;
 
+            .card_from {
+              height: 240px;
+              // margin: 10px auto;
+              padding: 0px 2px;
+              overflow-y: scroll;
+              color: #fff;
+              font-size: 15px;
+              /* 隐藏滚动条 */
+              -ms-overflow-style: none;
+              /* IE and Edge */
+              scrollbar-width: none;
+
+              .newsReport {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                height: 50px;
+                line-height: 25px;
+
+                .real_ranking {
+                  width: 30px;
+                  height: 30px;
+                  margin: 10px;
+                  line-height: 30px;
+                  text-align: center;
+                  background: #1e4889;
+                }
+
+                .real_introduce {
+                  display: -webkit-box;
+                  width: 270px;
+                  overflow: hidden;
+                  text-align: left;
+                  -webkit-box-orient: vertical;
+                  -webkit-line-clamp: 1;
+                }
+              }
+            }
+
+            .real_content::-webkit-scrollbar {
+              display: none;
+            }
+
             .card_list {
               position: absolute;
-              top: -10px;
+              top: 40px;
               left: 50%;
               z-index: 100;
               display: inline-block;
@@ -254,7 +315,7 @@
               background: #101124;
               border-radius: 10px;
               box-shadow: 0px 0px 5px 4px rgba(28, 162, 247, 0.5);
-              transform: translate(-50%, -100%);
+              transform: translate(-50%);
               cursor: pointer;
 
               .btn {
@@ -266,9 +327,19 @@
               }
             }
 
-            // .card_title:hover {
+            .card_title:hover + .card_list {
+              animation: move1 1.2s;
+            }
 
-            // }
+            @keyframes move1 {
+              from {
+                opacity: 0;
+              }
+
+              to {
+                opacity: 1;
+              }
+            }
           }
         }
       }

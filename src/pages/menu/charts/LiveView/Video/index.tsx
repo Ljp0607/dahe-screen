@@ -58,6 +58,7 @@ const Videos: React.FC = () => {
     });
   };
   useEffect(() => {
+    console.log(liveSrc);
     //首次渲染获取直播数据
     if (liveSrc.length === 0) {
       getData(live);

@@ -1,4 +1,5 @@
-import { getHot, getNewsReport } from '@/api/modules';
+import { getHot, getHotData, getNewsReport } from '@/api/modules';
+import { useRequest } from '@umijs/max';
 import React, { useEffect, useState } from 'react';
 import List from '../../components/list';
 import Rim from '../../components/Rim';
@@ -61,9 +62,31 @@ const Real: React.FC = () => {
 
 //实时上升榜
 const HotRise: React.FC = () => {
+  // const [hot, setHot] = useState<API.HotDataList>([])
+  const { data, loading, error } = useRequest(() => getHotData());
+  if (loading) return <div>loading...</div>;
+  if (error) return <div>{error.message}</div>;
+  let arr = data?.filter((item) => item.wordSourceName === '微博热搜')[0].dateList;
+
+  console.log(arr);
+
+  // useEffect(() => {
+  //   getHotData().then((res) => {
+  //     setHot(res.data.filter(item => item.wordSourceName === '微博热搜'))
+  //   })
+  // }, [])
   return (
     <Rim>
-      <div className="hotrise">123</div>
+      <div className="hotrise">
+        <div className="latter_title">实时上升热榜</div>
+        <div className="hot_content">
+          {arr?.map((item) => (
+            <div className="hot_list" key={item.word}>
+              {item.word}
+            </div>
+          ))}
+        </div>
+      </div>
     </Rim>
   );
 };

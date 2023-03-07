@@ -8,8 +8,8 @@
   flex: 1;
 }
 .contanier main {
-  flex: 10;
   display: flex;
+  flex: 10;
   flex-direction: row;
 }
 .contanier main .aside {
@@ -17,10 +17,10 @@
   height: 100%;
 }
 .contanier main .aside .reporter {
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
   height: 320px;
   padding-top: 10px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 .contanier main .aside .reporter .content {
   margin: 0 auto;
@@ -32,9 +32,9 @@
   align-items: center;
   width: 100%;
   height: 40px;
+  font-size: 12px;
   text-align: center;
   background: rgba(0, 110, 255, 0.2);
-  font-size: 12px;
 }
 .contanier main .aside .reporter .content .headline span {
   flex: 1;
@@ -68,8 +68,17 @@
   display: none;
 }
 .contanier main .aside .hotrise {
-  height: 300px;
+  padding-top: 10px;
   width: 400px;
+  height: 300px;
+  color: #fff;
+  text-align: center;
+}
+.contanier main .aside .hotrise .hot_content {
+  line-height: 40px;
+  overflow-y: scroll;
+  height: 250px;
+  font-size: 18px;
 }
 .contanier main .aside .real {
   width: 400px;
@@ -77,19 +86,19 @@
   padding-top: 10px;
 }
 .contanier main .aside .real video {
-  margin-left: 30px;
   width: 350px;
   height: 200px;
+  margin-left: 30px;
 }
 .contanier main .aside .real .real_content {
-  margin: 0 auto;
   width: 360px;
-  background: rgba(18, 55, 119, 0.6);
-  color: #fff;
+  height: 220px;
+  margin: 0 auto;
   padding: 0px 8px;
-  height: 200px;
-  font-size: 15px;
   overflow-y: scroll;
+  color: #fff;
+  font-size: 15px;
+  background: rgba(18, 55, 119, 0.6);
   /* 隐藏滚动条 */
   -ms-overflow-style: none;
   /* IE and Edge */
@@ -99,22 +108,22 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  height: 50px;
-  line-height: 25px;
-  border-bottom: 1px solid #1651B8;
+  height: 55px;
+  line-height: 20px;
+  border-bottom: 1px solid #1651b8;
 }
 .contanier main .aside .real .real_content .newsReport .real_ranking {
   width: 30px;
   height: 30px;
-  line-height: 30px;
   margin: 10px;
+  line-height: 30px;
   text-align: center;
-  background: #1E4889;
+  background: #1e4889;
 }
 .contanier main .aside .real .real_content .newsReport .real_introduce {
+  display: -webkit-box;
   width: 300px;
   overflow: hidden;
-  display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
 }
@@ -158,16 +167,16 @@
   justify-content: center;
 }
 .contanier main .aside .btn_title {
-  cursor: pointer;
-  transform: 0.5s;
-  font-size: 22px;
   display: inline-block;
   width: 20%;
-  border: 2px solid #006eff;
-  border-radius: 6px;
   margin: 5px;
   color: #fff;
+  font-size: 22px;
   text-align: center;
+  border: 2px solid #006eff;
+  border-radius: 6px;
+  transform: 0.5s;
+  cursor: pointer;
 }
 .contanier main .aside .btn {
   background: #006eff;
@@ -176,29 +185,32 @@
   background: #006eff;
 }
 .contanier main .latter_title {
-  cursor: pointer;
+  font-weight: 500;
   font-size: 24px;
   text-align: center;
   background-image: -webkit-linear-gradient(top, #006eff, #ffffff);
   -webkit-background-clip: text;
   background-clip: text;
-  font-weight: 500;
+  cursor: pointer;
   -webkit-text-fill-color: transparent;
 }
 .contanier main .con_main {
   flex: 2.5;
 }
 .contanier main .con_main .search {
-  padding-top: 20px;
   width: 1060px;
   height: 360px;
+  padding-top: 10px;
+}
+.contanier main .con_main .search .search_title {
+  font-size: 30px;
+  margin-bottom: 20px;
 }
 .contanier main .con_main .search .ser_card {
-  width: 100%;
-  height: 300px;
   display: flex;
   justify-content: space-around;
-  padding: 0 10px;
+  width: 100%;
+  height: 300px;
 }
 .contanier main .con_main .search .ser_card .card {
   position: relative;
@@ -207,26 +219,74 @@
   color: #fff;
   text-align: center;
 }
+.contanier main .con_main .search .ser_card .card .card_from {
+  height: 240px;
+  padding: 0px 2px;
+  overflow-y: scroll;
+  color: #fff;
+  font-size: 15px;
+  /* 隐藏滚动条 */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+}
+.contanier main .con_main .search .ser_card .card .card_from .newsReport {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 50px;
+  line-height: 25px;
+}
+.contanier main .con_main .search .ser_card .card .card_from .newsReport .real_ranking {
+  width: 30px;
+  height: 30px;
+  margin: 10px;
+  line-height: 30px;
+  text-align: center;
+  background: #1e4889;
+}
+.contanier main .con_main .search .ser_card .card .card_from .newsReport .real_introduce {
+  text-align: left;
+  display: -webkit-box;
+  width: 270px;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+.contanier main .con_main .search .ser_card .card .real_content::-webkit-scrollbar {
+  display: none;
+}
 .contanier main .con_main .search .ser_card .card .card_list {
-  z-index: 100;
   position: absolute;
-  top: -10px;
+  top: 40px;
   left: 50%;
-  transform: translate(-50%, -100%);
-  cursor: pointer;
+  z-index: 100;
   display: inline-block;
   padding: 0 10px;
+  font-size: 16px;
   text-align: center;
   background: #101124;
-  font-size: 16px;
   border-radius: 10px;
   box-shadow: 0px 0px 5px 4px rgba(28, 162, 247, 0.5);
+  transform: translate(-50%);
+  cursor: pointer;
 }
 .contanier main .con_main .search .ser_card .card .card_list .btn {
   color: #006eff;
 }
 .contanier main .con_main .search .ser_card .card .card_list .card_item:hover {
   color: #006eff;
+}
+.contanier main .con_main .search .ser_card .card .card_title:hover + .card_list {
+  animation: move1 1.2s;
+}
+@keyframes move1 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .contanier main .expose {
   flex: 1;

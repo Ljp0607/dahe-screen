@@ -1,22 +1,26 @@
 .pagination {
-  width: 240px;
-  height: 30px;
   display: flex;
   justify-content: space-around;
+  height: 30px;
 }
 .pagination .chuck {
-  cursor: pointer;
-  font-size: 12px;
-  text-align: center;
-  color: #fff;
+  user-select: none;
+  margin: 0 7px;
   width: 30px;
   height: 30px;
+  color: #fff;
+  font-size: 12px;
   line-height: 26px;
+  text-align: center;
   border: 2px solid rgba(0, 110, 255, 0.6);
+  cursor: pointer;
 }
 .pagination .btn {
   background: RGBA(0, 110, 255);
 }
 .pagination .chuck:hover {
   background: RGBA(0, 110, 255);
+}
+.pagination .refuse {
+  background: #fff;
 }

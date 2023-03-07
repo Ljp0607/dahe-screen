@@ -2,27 +2,53 @@ import { LeftSquareTwoTone, RightSquareTwoTone } from '@ant-design/icons';
 import React from 'react';
 import './index.css';
 type Props = {
+  count: number;
   current: number;
+  onChange: (e: number) => void;
 };
 const Pagination: React.FC<Props> = (props) => {
-  let arr = [0, 1, 2, 3];
-  // let list = 3
-  // const listItems = list.map((item, index) => { item }
-  // );
+  let arr: Array<number> = [];
+  for (let i = 1; i <= props.count; i++) {
+    arr.push(i);
+  }
+  //上一页
+  const lastChange = () => {
+    if (props.current !== 1) {
+      props.onChange(props.current - 1);
+    }
+  };
+  //下一页
+  const nextChange = () => {
+    if (props.current !== props.count) {
+      props.onChange(props.current + 1);
+    }
+  };
+
   return (
     <div className="pagination">
-      <LeftSquareTwoTone style={{ fontSize: '34px' }} />{' '}
+      <LeftSquareTwoTone
+        className="LeftSquare"
+        onClick={props.current === 1 ? undefined : lastChange}
+        twoToneColor={props.current === 1 ? '#aaa' : ''}
+        style={{ fontSize: '34px' }}
+      />
       {arr.map((item) => (
-        <div key={item} className={props.current === item ? 'btn chuck' : 'chuck'}>
+        <div
+          key={item}
+          onClick={() => {
+            props.onChange(item);
+          }}
+          className={props.current === item ? 'btn chuck' : 'chuck'}
+        >
           {item}
         </div>
       ))}
-      <RightSquareTwoTone style={{ fontSize: '34px' }} />{' '}
+      <RightSquareTwoTone
+        onClick={props.current === props.count ? undefined : nextChange}
+        twoToneColor={props.current === props.count ? '#aaa' : ''}
+        style={{ fontSize: '34px' }}
+      />
     </div>
   );
 };
-Pagination.defaultProps = {
-  current: 2,
-};
-
 export default Pagination;

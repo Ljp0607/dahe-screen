@@ -11,5 +11,271 @@
   main {
     display: flex;
     flex: 10;
+    flex-direction: row;
+
+    .aside {
+      flex: 1;
+      height: 100%;
+
+      //传播力
+      .reporter {
+        height: 320px;
+        padding-top: 10px;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+
+        .content {
+          margin: 0 auto;
+          margin-top: 10px;
+          padding: 0px 30px;
+
+          .headline {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 40px;
+            font-size: 12px;
+            text-align: center;
+            background: RGBA(0, 110, 255, 0.2);
+
+            span {
+              flex: 1;
+              color: #fff;
+              font-weight: 600;
+              font-size: 12px;
+            }
+          }
+
+          .con-list {
+            width: 100%;
+            height: 160px;
+            /* Firefox */
+            overflow-y: scroll;
+            // overflow: hidden;
+            /* 隐藏滚动条 */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+
+            .ranking {
+              display: flex;
+              align-items: center;
+              height: 40px;
+              text-align: center;
+              border-bottom: #006eff 1px solid;
+
+              span {
+                flex: 1;
+                color: #fff;
+                font-size: 14px;
+              }
+            }
+          }
+
+          .con-list::-webkit-scrollbar {
+            display: none;
+          }
+        }
+      }
+
+      .hotrise {
+        width: 400px;
+        height: 300px;
+      }
+
+      //热门
+      .real {
+        width: 400px;
+        height: 330px;
+        padding-top: 10px;
+        //;
+
+        video {
+          width: 350px;
+          height: 200px;
+          margin-left: 30px;
+        }
+
+        .real_content {
+          width: 360px;
+          height: 200px;
+          margin: 0 auto;
+          padding: 0px 8px;
+          overflow-y: scroll;
+          color: #fff;
+          font-size: 15px;
+          background: rgba(18, 55, 119, 0.6);
+          /* 隐藏滚动条 */
+          -ms-overflow-style: none;
+          /* IE and Edge */
+          scrollbar-width: none;
+
+          .newsReport {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 50px;
+            line-height: 25px;
+            border-bottom: 1px solid #1651b8;
+
+            .real_ranking {
+              width: 30px;
+              height: 30px;
+              margin: 10px;
+              line-height: 30px;
+              text-align: center;
+              background: #1e4889;
+            }
+
+            .real_introduce {
+              display: -webkit-box;
+              width: 300px;
+              overflow: hidden;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+            }
+          }
+        }
+
+        .real_content::-webkit-scrollbar {
+          display: none;
+        }
+
+        .carousel {
+          position: absolute;
+          bottom: 20px;
+          left: 50%;
+          z-index: 10;
+          display: flex;
+          justify-content: space-around;
+          width: 180px;
+          transform: translate(-50%);
+
+          .dat {
+            padding: 5px;
+            cursor: pointer;
+
+            .car_dat {
+              width: 12px;
+              height: 4px;
+              background: #7b86a4;
+              border-radius: 2px;
+              transition: 0.2s;
+            }
+          }
+
+          .dat:hover .car_dat {
+            background: #fff;
+          }
+
+          .btn {
+            background: none;
+
+            .car_dat {
+              width: 24px;
+              background: #fff;
+            }
+          }
+        }
+      }
+
+      .fa-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      //公共选项
+      .btn_title {
+        display: inline-block;
+        width: 20%;
+        margin: 5px;
+        color: #fff;
+        font-size: 22px;
+        text-align: center;
+        border: 2px solid #006eff;
+        border-radius: 6px;
+        transform: 0.5s;
+        cursor: pointer;
+      }
+
+      .btn {
+        background: #006eff;
+      }
+
+      .btn_title:hover {
+        background: #006eff;
+      }
+    }
+
+    //公共标题
+    .latter_title {
+      font-weight: 500;
+      font-size: 24px;
+      text-align: center;
+      background-image: -webkit-linear-gradient(top, #006eff, #ffffff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      cursor: pointer;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .con_main {
+      flex: 2.5;
+
+      .search {
+        width: 1060px;
+        height: 360px;
+        padding-top: 20px;
+
+        .ser_card {
+          display: flex;
+          justify-content: space-around;
+          width: 100%;
+          height: 300px;
+          padding: 0 10px;
+
+          .card {
+            position: relative;
+            width: 30%;
+            height: 290px;
+            color: #fff;
+            text-align: center;
+
+            .card_list {
+              position: absolute;
+              top: -10px;
+              left: 50%;
+              z-index: 100;
+              display: inline-block;
+              padding: 0 10px;
+              font-size: 16px;
+              text-align: center;
+              background: #101124;
+              border-radius: 10px;
+              box-shadow: 0px 0px 5px 4px rgba(28, 162, 247, 0.5);
+              transform: translate(-50%, -100%);
+              cursor: pointer;
+
+              .btn {
+                color: #006eff;
+              }
+
+              .card_item:hover {
+                color: #006eff;
+              }
+            }
+
+            // .card_title:hover {
+
+            // }
+          }
+        }
+      }
+    }
+
+    .expose {
+      flex: 1;
+    }
   }
 }

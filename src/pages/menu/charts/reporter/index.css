@@ -11,6 +11,74 @@
   display: flex;
   flex: 10;
 }
+.contanier main .list_title {
+  width: 380px;
+  height: 80px;
+  margin: 0 auto;
+  margin-top: 30px;
+  color: #006eff;
+  font-size: 40px;
+  line-height: 80px;
+  text-align: center;
+  background-image: url('@/assets/3-bg/1002.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.contanier main .list_title span {
+  background-image: -webkit-linear-gradient(top, #006eff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.contanier main .content {
+  width: 520px;
+  height: 750px;
+  margin: 0 auto;
+  margin-top: 50px;
+  padding: 30px;
+  background-image: url('@/assets/3-bg/1003.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.contanier main .content .headline {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  text-align: center;
+  background: rgba(0, 110, 255, 0.2);
+}
+.contanier main .content .headline span {
+  flex: 1;
+  color: #fff;
+  font-weight: 600;
+  font-size: 26px;
+}
+.contanier main .content .con-list {
+  width: 100%;
+  height: 600px;
+  /* Firefox */
+  overflow-y: scroll;
+  /* 隐藏滚动条 */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+}
+.contanier main .content .con-list .ranking {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  text-align: center;
+  border-bottom: #006eff 1px solid;
+}
+.contanier main .content .con-list .ranking span {
+  flex: 1;
+  color: #fff;
+  font-size: 24px;
+}
+.contanier main .content .con-list::-webkit-scrollbar {
+  display: none;
+}
 video {
   display: block;
   max-width: 100vw;

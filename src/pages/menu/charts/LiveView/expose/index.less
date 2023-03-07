@@ -1,17 +1,51 @@
 .expose {
+  box-sizing: border-box;
   width: 400px;
-  padding-top: 10px;
-  border: 1px solid red;
-
+  height: 900px;
+  padding: 20px;
   .ex_title {
-    font-size: 30px;
+    font-size: 24px;
     text-align: center;
     background-image: -webkit-linear-gradient(top, #006eff, #ffffff);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  .ex_card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 800px;
+    margin-bottom: 30px;
+
+    .card {
+      flex: 1;
+      margin: 10px 0;
+      margin-bottom: 30px;
+      padding: 20px 30px;
+      color: #fff;
+      background-image: url('@/assets/3-bg/21.png');
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+
+      .card_introduce {
+        display: flex;
+        height: 160px;
+        padding: 20px 0;
+        overflow: scroll;
+        font-size: 18px;
+        text-indent: 2em;
+      }
+      .card_time {
+        float: right;
+        margin: 20px 20px 0 20px;
+        font-size: 16px;
+      }
+    }
+  }
 }
-.Pagination {
-  color: red;
-}
+
+// .Pagination {
+//   color: red;
+// }

@@ -62,13 +62,29 @@ export async function getHot() {
     method: 'GET',
   });
 }
+/** 获取热门图文数据*/
+export async function getNewsReport() {
+  return request<API.newsReport>(baseUrl + 'fanwenapi/newsreportercountList.do', {
+    method: 'GET',
+  });
+}
 /** 获取爆料详情 */
 export async function getExpose() {
-  return request<{ data: API.hotList }>(baseUrl + 'app/announce/announceList', {
+  return request<{ data: API.exposeList }>(baseUrl + 'app/announce/announceList', {
     method: 'GET',
     params: {
       page_index: 0,
       page_count: 12,
+    },
+  });
+}
+/**获取热搜 */
+export async function getHotData() {
+  return request<{ data: API.HotDataList }>(baseUrl + 'fanwenapi/getHotData', {
+    method: 'GET',
+    params: {
+      pagesize: 10,
+      urlName: 'Client831/HotWords',
     },
   });
 }

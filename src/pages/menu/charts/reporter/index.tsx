@@ -33,9 +33,7 @@ const VideoData: React.FC<dataProps> = (props) => {
   }
   return (
     <>
-      <video ref={videoDom} autoPlay muted src={data?.[0].linkUrl}>
-        {/* <source type='video/mp4'  /> */}
-      </video>
+      <video ref={videoDom} autoPlay muted src={data?.[0].linkUrl}></video>
     </>
   );
 };

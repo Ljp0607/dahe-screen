@@ -19,7 +19,6 @@ const ListData: React.FC<dataProps> = (props) => {
     return <div>{error.message}</div>;
   }
   //遍历记者加入排名
-
   //过滤传播力为0的记者
   if (data)
     data.accountAuthRecordList = data?.accountAuthRecordList?.filter(
@@ -28,7 +27,7 @@ const ListData: React.FC<dataProps> = (props) => {
   return (
     <>
       {data?.accountAuthRecordList?.map((item, index) => (
-        <div key={item.ranking} className="ranking">
+        <div key={item.reportId + index.toString()} className="ranking">
           <span>{index + 1}</span>
           <span>{item.reportName}</span>
           <span>{item.transmissionIndex}</span>
@@ -90,7 +89,7 @@ const List: React.FC<Props> = (props) => {
   }, [props.show]);
   return (
     <div className="list">
-      <div className="title">
+      <div className="list_title">
         <span>{props.title}</span>
       </div>
       <div className="content">

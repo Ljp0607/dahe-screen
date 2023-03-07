@@ -2,17 +2,19 @@ import { getHot, getLive } from '@/api/modules';
 import React, { useEffect, useRef, useState } from 'react';
 import videojs from 'video.js';
 import 'video.js/dist/video-js.css';
+import Rim from '../../components/Rim';
 import './index.css';
+
 const Videos: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [last, setLast] = useState<number>(0);
   const [start, setStart] = useState<boolean>(true);
   const [live, setLive] = useState<boolean>(true);
-  const [liveSrc, setLiveSrc] = useState<Array<string | undefined>>([]);
-  const [hotSrc, setHotSrc] = useState<Array<string | undefined>>([]);
+  const [liveSrc, setLiveSrc] = useState<string[]>([]);
+  const [hotSrc, setHotSrc] = useState<string[]>([]);
   //获取直播或者热门视频
   const getData = async (live: boolean) => {
-    let arr: Array<string | undefined> = [];
+    let arr: string[] = [];
     if (live) {
       await getLive().then((res) => {
         res.data.liveList?.forEach((item) => {
@@ -71,12 +73,12 @@ const Videos: React.FC = () => {
           language: 'zh-CN',
           muted: true,
           bigPlayButton: true, //是否显示播放按钮
-          // controls: true, //播放控件
+          controls: true, //播放控件
         },
         function () {
           videojs.on(videoRef.current, 'ended', function () {
             //如果播放结束,播放下一个
-            setLast((last) => (last > 9 ? 0 : last + 1));
+            setLast((last) => (last >= 9 ? 0 : last + 1));
           });
         },
       );
@@ -85,39 +87,41 @@ const Videos: React.FC = () => {
     }
   }, [live, liveSrc, last]);
   return (
-    <div className="videoLive">
-      <div className="cut">
-        <div className={live ? 'btn' : ''} onClick={() => changeType(true)}>
-          直播
-        </div>
-        <div className={live ? '' : 'btn'} onClick={() => changeType(false)}>
-          视频
-        </div>
-      </div>
-      <video
-        ref={videoRef}
-        className="video-js vjs-default-skin"
-        width={1000}
-        height={560}
-        controls
-      >
-        {' '}
-        <source src={live ? liveSrc[last] : hotSrc[last]} />
-      </video>
-      <div className="carousel">
-        {liveSrc.map((item, index) => (
-          <div
-            className={last === index ? 'dat btn' : 'dat'}
-            onClick={() => {
-              setLast(index);
-            }}
-            key={item}
-          >
-            <div className="car_dat"></div>
+    <Rim>
+      <div className="videoLive">
+        <div className="cut">
+          <div className={live ? 'btn' : ''} onClick={() => changeType(true)}>
+            直播
           </div>
-        ))}
+          <div className={live ? '' : 'btn'} onClick={() => changeType(false)}>
+            视频
+          </div>
+        </div>
+        <video
+          ref={videoRef}
+          className="video-js vjs-default-skin"
+          width={1000}
+          height={560}
+          controls
+        >
+          {' '}
+          <source src={live ? liveSrc[last] : hotSrc[last]} />
+        </video>
+        <div className="carousel">
+          {liveSrc.map((item, index) => (
+            <div
+              className={last === index ? 'dat btn' : 'dat'}
+              onClick={() => {
+                setLast(index);
+              }}
+              key={item}
+            >
+              <div className="car_dat"></div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </Rim>
   );
 };
 export default Videos;

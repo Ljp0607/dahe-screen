@@ -2,6 +2,32 @@
 /* eslint-disable */
 
 declare namespace API {
+  type HotDataList = {
+    wordSourceName: string;
+    wordSource: number;
+    dateList: {
+      createTime: string;
+      word: string;
+      wordSource: number;
+    }[];
+  }[];
+  type newsReport = {
+    pc_browse_num: number;
+    client_channel_id: number;
+    user_name: string;
+    community_name: string;
+    news_publish_date: number;
+    news_editor: string;
+    news_browse_num: number;
+    news_id: number;
+    client_channel_name: string;
+    community_id: number;
+    news_editor_id: string;
+    sum_browse_num: number;
+    news_title: string;
+    words_newsman: string;
+  }[];
+
   type exposeList = {
     showCount: number;
     page_index: number;
@@ -30,10 +56,10 @@ declare namespace API {
       video_img?: string;
       yynum?: number;
       newsCommentsNum?: number;
-      studio_broadcast_address?: string;
+      studio_broadcast_address: string;
       recorded_address?: string;
       typesOf?: number;
-      pushed_back_flow_end?: string;
+      pushed_back_flow_end: string;
       action?: string;
       communityName?: string;
       communityId?: number;

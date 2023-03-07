@@ -1,8 +1,10 @@
 import React from 'react';
 import Title from '../components/title';
-import './index.css';
-// import Videos from './Video'
+import Aside from './aside';
 import Expose from './expose';
+import './index.css';
+import Search from './Search';
+import Videos from './Video';
 const LiveView: React.FC = () => {
   return (
     <div className="contanier">
@@ -13,8 +15,14 @@ const LiveView: React.FC = () => {
         />
       </header>
       <main>
-        <div></div>
-        <div className="con_main">{/* <Videos /> */}</div>
+        <div className="aside">
+          <Aside />
+          {/* <Reporter /> */}
+        </div>
+        <div className="con_main">
+          <Videos />
+          <Search />
+        </div>
         <Expose />
       </main>
     </div>

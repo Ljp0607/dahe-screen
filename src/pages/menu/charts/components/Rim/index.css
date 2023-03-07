@@ -1,0 +1,31 @@
+.rim {
+  margin: 10px;
+  box-shadow: 0px 0px 10px 4px rgba(28, 162, 247, 0.5) inset;
+  position: relative;
+}
+.rim .dot {
+  width: 50px;
+  height: 50px;
+  border-left: 2px solid #00AAFF;
+  border-top: 2px solid #00AAFF;
+  position: absolute;
+}
+.rim .top {
+  top: 0px;
+  left: 0px;
+}
+.rim .bom {
+  bottom: 0px;
+  left: 0px;
+  transform: rotate(-90deg);
+}
+.rim .left {
+  top: 0;
+  right: 0;
+  transform: rotate(90deg);
+}
+.rim .rigth {
+  right: 0px;
+  bottom: 0px;
+  transform: rotate(180deg);
+}

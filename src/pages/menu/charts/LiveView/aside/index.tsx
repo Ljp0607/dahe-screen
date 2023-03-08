@@ -11,16 +11,24 @@ const Real: React.FC = () => {
   const [news, setNews] = useState<API.newsReport>([]);
   useEffect(() => {
     //获取热门图文
-    getNewsReport().then((res) => setNews(res));
+    getNewsReport().then((res) => {
+      setNews(res);
+    });
     //获取热门视频
     getHot().then((res) => setHotSrc(res));
   }, []);
+
   return (
     <Rim>
       <div className="real">
         <div className="latter_title">豫视频48小时热门</div>
         <div className="fa-title">
-          <div onClick={() => setShow(true)} className={show ? 'btn_title btn' : 'btn_title'}>
+          <div
+            onClick={() => {
+              setShow(true);
+            }}
+            className={show ? 'btn_title btn' : 'btn_title'}
+          >
             图文
           </div>
           <div onClick={() => setShow(false)} className={show ? 'btn_title ' : 'btn btn_title'}>
@@ -28,13 +36,15 @@ const Real: React.FC = () => {
           </div>
         </div>
         {show && (
-          <div className="real_content">
-            {news.map((item, index) => (
-              <div className="newsReport" key={item.news_id}>
-                <div className="real_ranking"> {index + 1}</div>{' '}
-                <div className="real_introduce">{item.news_title}</div>
-              </div>
-            ))}
+          <div className="fa_real_content">
+            <div className="real_content">
+              {news.map((item, index) => (
+                <div className="newsReport" key={item.news_id}>
+                  <div className="real_ranking"> {index + 1}</div>{' '}
+                  <div className="real_introduce">{item.news_title}</div>
+                </div>
+              ))}
+            </div>
           </div>
         )}
         {!show && hotSrc && (
@@ -62,19 +72,10 @@ const Real: React.FC = () => {
 
 //实时上升榜
 const HotRise: React.FC = () => {
-  // const [hot, setHot] = useState<API.HotDataList>([])
   const { data, loading, error } = useRequest(() => getHotData());
   if (loading) return <div>loading...</div>;
   if (error) return <div>{error.message}</div>;
   let arr = data?.filter((item) => item.wordSourceName === '微博热搜')[0].dateList;
-
-  console.log(arr);
-
-  // useEffect(() => {
-  //   getHotData().then((res) => {
-  //     setHot(res.data.filter(item => item.wordSourceName === '微博热搜'))
-  //   })
-  // }, [])
   return (
     <Rim>
       <div className="hotrise">

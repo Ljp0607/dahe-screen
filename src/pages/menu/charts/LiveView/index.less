@@ -78,6 +78,7 @@
         }
       }
 
+      //实时上升热榜
       .hotrise {
         width: 400px;
         height: 300px;
@@ -90,8 +91,6 @@
           overflow-y: scroll;
           font-size: 18px;
           line-height: 40px;
-
-          // .hot_list {}
         }
       }
 
@@ -100,7 +99,6 @@
         width: 400px;
         height: 330px;
         padding-top: 10px;
-        //;
 
         video {
           width: 350px;
@@ -108,22 +106,22 @@
           margin-left: 30px;
         }
 
-        .real_content {
+        //轮播内容
+        .fa_real_content {
           width: 360px;
           height: 220px;
           margin: 0 auto;
-          padding: 0px 8px;
-          overflow-y: scroll;
+          overflow: scroll;
           color: #fff;
           font-size: 15px;
           background: rgba(18, 55, 119, 0.6);
-          /* 隐藏滚动条 */
-          -ms-overflow-style: none;
-          /* IE and Edge */
-          scrollbar-width: none;
+        }
+
+        .real_content {
+          padding: 0px 8px;
+          animation: realRoll 20s infinite linear;
 
           .newsReport {
-            // padding: 2px 0;
             display: flex;
             align-items: center;
             justify-content: flex-start;
@@ -150,10 +148,21 @@
           }
         }
 
-        .real_content::-webkit-scrollbar {
-          display: none;
+        .real_content:hover {
+          animation-play-state: paused;
         }
 
+        @keyframes realRoll {
+          0% {
+            transform: translateY(0);
+          }
+
+          100% {
+            transform: translateY(-320px);
+          }
+        }
+
+        //视频点点的
         .carousel {
           position: absolute;
           bottom: 20px;
@@ -259,18 +268,19 @@
             height: 290px;
             color: #fff;
             text-align: center;
+            // overflow: hidden;
+
+            .fa_card_from {
+              // overflow: hidden;
+              height: 240px;
+              margin-top: 5px;
+              overflow-y: scroll;
+            }
 
             .card_from {
-              height: 240px;
-              // margin: 10px auto;
-              padding: 0px 2px;
-              overflow-y: scroll;
               color: #fff;
               font-size: 15px;
-              /* 隐藏滚动条 */
-              -ms-overflow-style: none;
-              /* IE and Edge */
-              scrollbar-width: none;
+              animation: cardRoll 20s linear infinite;
 
               .newsReport {
                 display: flex;
@@ -299,8 +309,8 @@
               }
             }
 
-            .real_content::-webkit-scrollbar {
-              display: none;
+            .card_from:hover {
+              animation-play-state: paused;
             }
 
             .card_list {
@@ -338,6 +348,16 @@
 
               to {
                 opacity: 1;
+              }
+            }
+
+            @keyframes cardRoll {
+              from {
+                transform: translateY(0);
+              }
+
+              to {
+                transform: translateY(-250px);
               }
             }
           }

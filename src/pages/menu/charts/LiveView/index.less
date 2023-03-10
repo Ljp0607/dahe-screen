@@ -49,13 +49,7 @@
           .con-list {
             width: 100%;
             height: 160px;
-            /* Firefox */
             overflow-y: scroll;
-            // overflow: hidden;
-            /* 隐藏滚动条 */
-            -ms-overflow-style: none;
-            /* IE and Edge */
-            scrollbar-width: none;
 
             .ranking {
               display: flex;
@@ -70,10 +64,6 @@
                 font-size: 14px;
               }
             }
-          }
-
-          .con-list::-webkit-scrollbar {
-            display: none;
           }
         }
       }
@@ -369,4 +359,15 @@
       flex: 1;
     }
   }
+}
+
+/* 隐藏滚动条 */
+
+.delete_srcoll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.delete_srcoll::-webkit-scrollbar {
+  display: none;
 }

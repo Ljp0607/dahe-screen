@@ -55,7 +55,7 @@ const Card: React.FC<Props> = (props) => {
       <div className="latter_title card_title" onMouseOver={onMove} onMouseOut={onOut}>
         {props.content ? props.content[last].wordSourceName : ''}
       </div>
-      <div className="fa_card_from">
+      <div className="fa_card_from delete_srcoll">
         <div className="card_from" ref={cardRef}>
           {props.content &&
             props.content[last].dateList.map((item, index) => (

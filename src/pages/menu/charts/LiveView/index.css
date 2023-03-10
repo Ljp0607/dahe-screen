@@ -45,12 +45,7 @@
 .contanier main .aside .reporter .content .con-list {
   width: 100%;
   height: 160px;
-  /* Firefox */
   overflow-y: scroll;
-  /* 隐藏滚动条 */
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
 }
 .contanier main .aside .reporter .content .con-list .ranking {
   display: flex;
@@ -63,9 +58,6 @@
   flex: 1;
   color: #fff;
   font-size: 14px;
-}
-.contanier main .aside .reporter .content .con-list::-webkit-scrollbar {
-  display: none;
 }
 .contanier main .aside .hotrise {
   width: 400px;
@@ -91,13 +83,13 @@
   margin-left: 30px;
 }
 .contanier main .aside .real .fa_real_content {
-  margin: 0 auto;
   width: 360px;
+  height: 220px;
+  margin: 0 auto;
+  overflow: scroll;
   color: #fff;
   font-size: 15px;
   background: rgba(18, 55, 119, 0.6);
-  height: 220px;
-  overflow: scroll;
 }
 .contanier main .aside .real .real_content {
   padding: 0px 8px;
@@ -227,8 +219,8 @@
   text-align: center;
 }
 .contanier main .con_main .search .ser_card .card .fa_card_from {
-  margin-top: 5px;
   height: 240px;
+  margin-top: 5px;
   overflow-y: scroll;
 }
 .contanier main .con_main .search .ser_card .card .card_from {
@@ -304,4 +296,12 @@
 }
 .contanier main .expose {
   flex: 1;
+}
+/* 隐藏滚动条 */
+.delete_srcoll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.delete_srcoll::-webkit-scrollbar {
+  display: none;
 }

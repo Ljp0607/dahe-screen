@@ -98,7 +98,12 @@ const List: React.FC<Props> = (props) => {
           <span>姓名</span>
           <span>传播力</span>
         </div>
-        <div onMouseEnter={onEnter} onMouseLeave={onLeave} className="con-list" ref={scrollRef}>
+        <div
+          onMouseEnter={onEnter}
+          onMouseLeave={onLeave}
+          className="con-list delete_srcoll"
+          ref={scrollRef}
+        >
           <ListData type={props.drawRule} />
         </div>
       </div>

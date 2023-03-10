@@ -12,7 +12,7 @@ type cardProps = {
 const Card: React.FC<cardProps> = (props) => {
   return (
     <div className="card">
-      <div className="card_introduce">{props.content}</div>
+      <div className="card_introduce delete_srcoll">{props.content}</div>
       <div className="card_time">{props.time}</div>
     </div>
   );

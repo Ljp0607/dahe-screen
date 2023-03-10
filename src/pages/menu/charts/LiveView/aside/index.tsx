@@ -36,7 +36,7 @@ const Real: React.FC = () => {
           </div>
         </div>
         {show && (
-          <div className="fa_real_content">
+          <div className="fa_real_content delete_srcoll">
             <div className="real_content">
               {news.map((item, index) => (
                 <div className="newsReport" key={item.news_id}>
@@ -80,7 +80,7 @@ const HotRise: React.FC = () => {
     <Rim>
       <div className="hotrise">
         <div className="latter_title">实时上升热榜</div>
-        <div className="hot_content">
+        <div className="hot_content delete_srcoll">
           {arr?.map((item) => (
             <div className="hot_list" key={item.word}>
               {item.word}

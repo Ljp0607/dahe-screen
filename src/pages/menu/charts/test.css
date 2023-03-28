@@ -1,0 +1,12 @@
+.content {
+  margin: 20px auto;
+  padding: 0;
+  height: 400px;
+  border: 1px solid red;
+  display: flex;
+  overflow-x: scroll;
+}
+.content .con-img {
+  width: 300px;
+  height: 400px;
+}

@@ -7,7 +7,6 @@ import Line from './line/index';
 import Map from './map/index';
 import Ranking from './ranking/index';
 import Year from './year/index';
-
 const Download: React.FC = () => {
   //初始化获取数据
   const { data, error, loading } = useRequest(() => {

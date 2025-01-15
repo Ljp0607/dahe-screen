@@ -1,0 +1,58 @@
+/* .layout {
+  background: #f0f2f5;
+}
+
+.grid-item {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.grid-item-header {
+  padding: 8px;
+  color: #fff;
+  font-size: 16px;
+  background: #1890ff;
+}
+
+.grid-item-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+} */
+/* 基础样式 */
+.app {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.layout {
+  background: #f0f2f5;
+}
+
+.grid-item {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.grid-item-header {
+  padding: 8px;
+  color: #fff;
+  font-size: 16px;
+  background: #1890ff;
+}
+
+.grid-item-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 16px;
+}

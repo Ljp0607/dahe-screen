@@ -1,5 +1,6 @@
 export default {
   'menu.welcome': '欢迎',
+  'menu.drag': '拖拽',
   'menu.test': '测试页',
   'menu.more-blocks': '更多区块',
   'menu.home': '首页',

@@ -30,6 +30,19 @@ export default [
     icon: 'smile',
     component: './menu/Welcome',
   },
+  {
+    path: '/drag',
+    name: 'drag',
+    icon: 'smile',
+    component: './drag',
+    headerRender: false,
+    footerRender: false,
+    menuRender: false,
+    menuHeaderRender: false,
+    flatMenu: true,
+    hideInBreadcrumb: true,
+    target: '_blank',
+  },
   //测试页
   {
     path: '/test',
